@@ -89,4 +89,33 @@ void main() {
       expect(ibanUtilities.bankAccountNumber(Country.germany), "0532013000");
     });
   });
+
+  group("Sections of France IBAN Check", () {
+    var sampleIban = "FR14 2004 1010 0505 0001 3M02 606";
+    final ibanUtilities = IbanUtilities(sampleIban);
+
+    test('France countryCode check', () {
+      expect(ibanUtilities.countryCode(Country.france), "FR");
+    });
+
+    test('France checkDigits check', () {
+      expect(ibanUtilities.checkDigits(Country.france), "14");
+    });
+
+    test('France bankCode check', () {
+      expect(ibanUtilities.bankCode(Country.france), "20041");
+    });
+
+    test('France branchCode check', () {
+      expect(ibanUtilities.branchCode(Country.france), "01005");
+    });
+
+    test('France nationalCheckDigit check', () {
+      expect(ibanUtilities.nationalCheckDigit(Country.france), "06");
+    });
+
+    test('France bankAccountNumber check', () {
+      expect(ibanUtilities.bankAccountNumber(Country.france), "0500013M026");
+    });
+  });
 }
