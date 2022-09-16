@@ -3,7 +3,7 @@ import 'package:iban_utilities/country_enums.dart';
 import 'package:iban_utilities/iban_utilities.dart';
 
 void main() {
-  group("Sections of Turkish IBAN Check", () {
+  group("Sections of Turkish IBAN Test", () {
     var sampleIban = "TR33 0006 1005 1978 6457 8413 26";
     final ibanUtilities = IbanUtilities(sampleIban);
 
@@ -32,7 +32,7 @@ void main() {
     });
   });
 
-  group("Sections of United Kingdom IBAN Check", () {
+  group("Sections of United Kingdom IBAN Test", () {
     var sampleIban = "GB29 NWBK 6016 1331 9268 19";
     final ibanUtilities = IbanUtilities(sampleIban);
 
@@ -61,7 +61,7 @@ void main() {
     });
   });
 
-  group("Sections of Germany IBAN Check", () {
+  group("Sections of Germany IBAN Test", () {
     var sampleIban = "DE89 3704 0044 0532 0130 00";
     final ibanUtilities = IbanUtilities(sampleIban);
 
@@ -90,7 +90,7 @@ void main() {
     });
   });
 
-  group("Sections of France IBAN Check", () {
+  group("Sections of France IBAN Test", () {
     var sampleIban = "FR14 2004 1010 0505 0001 3M02 606";
     final ibanUtilities = IbanUtilities(sampleIban);
 
@@ -116,6 +116,35 @@ void main() {
 
     test('France bankAccountNumber check', () {
       expect(ibanUtilities.bankAccountNumber(Country.france), "0500013M026");
+    });
+  });
+
+  group("Sections of Italy IBAN Test", () {
+    var sampleIban = "IT60 X054 2811 1010 0000 0123 456";
+    final ibanUtilities = IbanUtilities(sampleIban);
+
+    test('Italy countryCode check', () {
+      expect(ibanUtilities.countryCode(Country.italy), "IT");
+    });
+
+    test('Italy checkDigits check', () {
+      expect(ibanUtilities.checkDigits(Country.italy), "60");
+    });
+
+    test('Italy bankCode check', () {
+      expect(ibanUtilities.bankCode(Country.italy), "05428");
+    });
+
+    test('Italy branchCode check', () {
+      expect(ibanUtilities.branchCode(Country.italy), "11101");
+    });
+
+    test('Italy nationalCheckDigit check', () {
+      expect(ibanUtilities.nationalCheckDigit(Country.italy), "X");
+    });
+
+    test('Italy bankAccountNumber check', () {
+      expect(ibanUtilities.bankAccountNumber(Country.italy), "000000123456");
     });
   });
 }
