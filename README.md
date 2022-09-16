@@ -57,3 +57,17 @@ Banka Kodu | 20041 | Bankanın banka kodundan 5 karakter
 Şube Kodu | 01005 | Banka şubesi için 5 haneli kod
 Ulusal Kontrol Sayısı | 06 | Ulusal kod için 2 haneli kod
 Banka Hesap Numarası | 0500013M026 | Banka hesap numarası için 11 haneli kod
+
+### İtalya
+
+**İtalya**'da **IBAN** kodları **27** karakterden oluşur:
+
+Bilgi | Karakter Grubu | Açıklama
+------------ | ------------- | -------------
+Örnek IBAN | IT60 X054 2811 1010 0000 0123 456 | İtalya IBAN Numarası
+Ülke Kodu | IT | 2 harfli ülke kodu
+Kontrol Numarası | 60 | 2 haneli kontrol numarası
+Ulusal Kontrol Sayısı | X | Ulusal kod için 1 haneli kod
+Banka Kodu | 05428 | Bankanın banka kodundan 5 karakter
+Şube Kodu | 11101 | Banka şubesi için 5 haneli kod
+Banka Hesap Numarası | 000000123456 | Banka hesap numarası için 12 haneli kod
