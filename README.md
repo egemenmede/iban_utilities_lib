@@ -41,6 +41,5 @@ Bilgi | Karakter Grubu | Açıklama
 Örnek IBAN | DE89 3704 0044 0532 0130 00 | Almanya IBAN Numarası
 Ülke Kodu | DE | 2 harfli ülke kodu
 Kontrol Numarası | 89 | 2 haneli kontrol numarası
-Banka Kodu | NWBK | Bankanın banka kodundan 4 karakter
-Sıralama Kodu | 601613 | Banka şubesi için 6 haneli sıralama kodu
-Banka Hesap Numarası | 31926819 | Banka hesap numarası için 8 haneli kod
+Banka Kodu (BLZ code) | 37040044 | Bankanın banka kodundan 8 karakter
+Banka Hesap Numarası | 0532013000 | Banka hesap numarası için 10 haneli kod
