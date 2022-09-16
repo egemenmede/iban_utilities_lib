@@ -24,6 +24,11 @@ extension StringExtensions on String {
           return replaceAll(' ', '').substring(0, 2);
         }
 
+      case Country.italy:
+        {
+          return replaceAll(' ', '').substring(0, 2);
+        }
+
       default:
         {
           return replaceAll(' ', '').substring(0, 2);
@@ -49,6 +54,11 @@ extension StringExtensions on String {
         }
 
       case Country.france:
+        {
+          return replaceAll(' ', '').substring(2, 4);
+        }
+
+      case Country.italy:
         {
           return replaceAll(' ', '').substring(2, 4);
         }
@@ -82,6 +92,11 @@ extension StringExtensions on String {
           return replaceAll(' ', '').substring(4, 9);
         }
 
+      case Country.italy:
+        {
+          return replaceAll(' ', '').substring(5, 10);
+        }
+
       default:
         {
           return replaceAll(' ', '').substring(4, 9);
@@ -111,6 +126,11 @@ extension StringExtensions on String {
           return replaceAll(' ', '').substring(9, 14);
         }
 
+      case Country.italy:
+        {
+          return replaceAll(' ', '').substring(10, 15);
+        }
+
       default:
         {
           return replaceAll(' ', '').substring(0, 0);
@@ -136,6 +156,11 @@ extension StringExtensions on String {
         }
 
       case Country.france:
+        {
+          return replaceAll(' ', '').substring(0, 0);
+        }
+
+      case Country.italy:
         {
           return replaceAll(' ', '').substring(0, 0);
         }
@@ -169,6 +194,11 @@ extension StringExtensions on String {
           return replaceAll(' ', '').substring(25, 27);
         }
 
+      case Country.italy:
+        {
+          return replaceAll(' ', '').substring(4, 5);
+        }
+
       default:
         {
           return replaceAll(' ', '').substring(9, 10);
@@ -196,6 +226,11 @@ extension StringExtensions on String {
       case Country.france:
         {
           return replaceAll(' ', '').substring(14, 25);
+        }
+
+      case Country.italy:
+        {
+          return replaceAll(' ', '').substring(15, 27);
         }
 
       default:
