@@ -1,7 +1,16 @@
 library iban_utilities;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
+import 'package:iban_utilities/country_enums.dart';
+import 'package:iban_utilities/extensions.dart';
+
+class IbanUtilities {
+  String iban;
+  IbanUtilities(this.iban);
+
+  String countryCode(Country country) => iban.countryCode(country);
+  String checkDigits(Country country) => iban.checkDigits(country);
+  String bankCode(Country country) => iban.bankCode(country);
+  String sortCode(Country country) => iban.sortCode(country);
+  String nationalCheckDigit(Country country) => iban.nationalCheckDigit(country);
+  String bankAccountNumber(Country country) => iban.bankAccountNumber(country);
 }
