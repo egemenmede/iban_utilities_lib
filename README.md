@@ -43,3 +43,17 @@ Bilgi | Karakter Grubu | Açıklama
 Kontrol Numarası | 89 | 2 haneli kontrol numarası
 Banka Kodu (BLZ code) | 37040044 | Bankanın banka kodundan 8 karakter
 Banka Hesap Numarası | 0532013000 | Banka hesap numarası için 10 haneli kod
+
+### Fransa
+
+**Fransa**'da **IBAN** kodları **27** karakterden oluşur:
+
+Bilgi | Karakter Grubu | Açıklama
+------------ | ------------- | -------------
+Örnek IBAN | FR14 2004 1010 0505 0001 3M02 606 | Fransa IBAN Numarası
+Ülke Kodu | FR | 2 harfli ülke kodu
+Kontrol Numarası | 14 | 2 haneli kontrol numarası
+Banka Kodu | 20041 | Bankanın banka kodundan 5 karakter
+Şube Kodu | 01005 | Banka şubesi için 5 haneli kod
+Ulusal Kontrol Sayısı | 06 | Ulusal kod için 2 haneli kod
+Banka Hesap Numarası | 0500013M026 | Banka hesap numarası için 11 haneli kod
