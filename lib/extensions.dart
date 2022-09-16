@@ -19,6 +19,11 @@ extension StringExtensions on String {
           return replaceAll(' ', '').substring(0, 2);
         }
 
+      case Country.france:
+        {
+          return replaceAll(' ', '').substring(0, 2);
+        }
+
       default:
         {
           return replaceAll(' ', '').substring(0, 2);
@@ -39,6 +44,11 @@ extension StringExtensions on String {
         }
 
       case Country.germany:
+        {
+          return replaceAll(' ', '').substring(2, 4);
+        }
+
+      case Country.france:
         {
           return replaceAll(' ', '').substring(2, 4);
         }
@@ -67,9 +77,43 @@ extension StringExtensions on String {
           return replaceAll(' ', '').substring(4, 12);
         }
 
+      case Country.france:
+        {
+          return replaceAll(' ', '').substring(4, 9);
+        }
+
       default:
         {
           return replaceAll(' ', '').substring(4, 9);
+        }
+    }
+  }
+
+  String branchCode(Country country) {
+    switch (country) {
+      case Country.turkish:
+        {
+          return replaceAll(' ', '').substring(0, 0);
+        }
+
+      case Country.england:
+        {
+          return replaceAll(' ', '').substring(0, 0);
+        }
+
+      case Country.germany:
+        {
+          return replaceAll(' ', '').substring(0, 0);
+        }
+
+      case Country.france:
+        {
+          return replaceAll(' ', '').substring(9, 14);
+        }
+
+      default:
+        {
+          return replaceAll(' ', '').substring(0, 0);
         }
     }
   }
@@ -87,6 +131,11 @@ extension StringExtensions on String {
         }
 
       case Country.germany:
+        {
+          return replaceAll(' ', '').substring(0, 0);
+        }
+
+      case Country.france:
         {
           return replaceAll(' ', '').substring(0, 0);
         }
@@ -115,6 +164,11 @@ extension StringExtensions on String {
           return replaceAll(' ', '').substring(0, 0);
         }
 
+      case Country.france:
+        {
+          return replaceAll(' ', '').substring(25, 27);
+        }
+
       default:
         {
           return replaceAll(' ', '').substring(9, 10);
@@ -137,6 +191,11 @@ extension StringExtensions on String {
       case Country.germany:
         {
           return replaceAll(' ', '').substring(12, 22);
+        }
+
+      case Country.france:
+        {
+          return replaceAll(' ', '').substring(14, 25);
         }
 
       default:
