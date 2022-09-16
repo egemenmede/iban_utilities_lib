@@ -1,1 +1,1 @@
-enum Country { turkish, england, germany }
+enum Country { turkish, england, germany, france }
