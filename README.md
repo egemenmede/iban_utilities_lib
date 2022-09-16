@@ -10,6 +10,7 @@
 
 Bilgi | Karakter Grubu | Açıklama
 ------------ | ------------- | -------------
+Örnek IBAN | TR330006100519786457841326 | Türkiye IBAN Numarası
 Ülke Kodu | TR | 2 harfli ülke kodu
 Kontrol Numarası | 33 | 2 haneli kontrol numarası
 Banka Kodu | 00061 | Bankanın banka kodundan 5 karakter
@@ -24,8 +25,22 @@ Banka Hesap Numarası | 0519786457841326 | Banka hesap numarası için 16 haneli
 
 Bilgi | Karakter Grubu | Açıklama
 ------------ | ------------- | -------------
+Örnek IBAN | GB29 NWBK 6016 1331 9268 19 | İngiltere IBAN Numarası
 Ülke Kodu | GB | 2 harfli ülke kodu
 Kontrol Numarası | 29 | 2 haneli kontrol numarası
+Banka Kodu | NWBK | Bankanın banka kodundan 4 karakter
+Sıralama Kodu | 601613 | Banka şubesi için 6 haneli sıralama kodu
+Banka Hesap Numarası | 31926819 | Banka hesap numarası için 8 haneli kod
+
+### Almanya
+
+**Almanya**'de **IBAN** kodları **22** karakterden oluşur:
+
+Bilgi | Karakter Grubu | Açıklama
+------------ | ------------- | -------------
+Örnek IBAN | DE89 3704 0044 0532 0130 00 | Almanya IBAN Numarası
+Ülke Kodu | DE | 2 harfli ülke kodu
+Kontrol Numarası | 89 | 2 haneli kontrol numarası
 Banka Kodu | NWBK | Bankanın banka kodundan 4 karakter
 Sıralama Kodu | 601613 | Banka şubesi için 6 haneli sıralama kodu
 Banka Hesap Numarası | 31926819 | Banka hesap numarası için 8 haneli kod
