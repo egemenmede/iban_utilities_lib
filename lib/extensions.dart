@@ -240,3 +240,39 @@ extension StringExtensions on String {
     }
   }
 }
+
+extension ValidatorExtensions on String {
+  bool ibanValidate(Country country, String iban) {
+    switch (country) {
+      case Country.turkish:
+        {
+          return (iban.replaceAll(' ', '').length == 26 && iban.countryCode(country) == "TR") ? true : false;
+        }
+
+      case Country.england:
+        {
+          return (iban.replaceAll(' ', '').length == 22 && iban.countryCode(country) == "GB") ? true : false;
+        }
+
+      case Country.germany:
+        {
+          return (iban.replaceAll(' ', '').length == 22 && iban.countryCode(country) == "DE") ? true : false;
+        }
+
+      case Country.france:
+        {
+          return (iban.replaceAll(' ', '').length == 27 && iban.countryCode(country) == "FR") ? true : false;
+        }
+
+      case Country.italy:
+        {
+          return (iban.replaceAll(' ', '').length == 27 && iban.countryCode(country) == "IT") ? true : false;
+        }
+
+      default:
+        {
+          return false;
+        }
+    }
+  }
+}
