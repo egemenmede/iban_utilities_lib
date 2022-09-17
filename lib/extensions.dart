@@ -1,277 +1,319 @@
-import 'package:flutter/foundation.dart';
-import 'package:iban_utilities/country_enums.dart';
+import 'package:iban_utilities/enums_countries.dart';
+import 'package:iban_utilities/utils.dart';
 
 extension StringExtensions on String {
-  String countryCode(Country country) {
+  String getCountryCode(Country country) {
     switch (country) {
       case Country.turkish:
         {
-          return replaceAll(' ', '').substring(0, 2);
+          return prepareIban().substring(0, 2);
         }
 
       case Country.england:
         {
-          return replaceAll(' ', '').substring(0, 2);
+          return prepareIban().substring(0, 2);
         }
 
       case Country.germany:
         {
-          return replaceAll(' ', '').substring(0, 2);
+          return prepareIban().substring(0, 2);
         }
 
       case Country.france:
         {
-          return replaceAll(' ', '').substring(0, 2);
+          return prepareIban().substring(0, 2);
         }
 
       case Country.italy:
         {
-          return replaceAll(' ', '').substring(0, 2);
+          return prepareIban().substring(0, 2);
         }
 
       default:
         {
-          return replaceAll(' ', '').substring(0, 2);
+          return prepareIban().substring(0, 2);
         }
     }
   }
 
-  String checkDigits(Country country) {
+  String getCheckDigits(Country country) {
     switch (country) {
       case Country.turkish:
         {
-          return replaceAll(' ', '').substring(2, 4);
+          return prepareIban().substring(2, 4);
         }
 
       case Country.england:
         {
-          return replaceAll(' ', '').substring(2, 4);
+          return prepareIban().substring(2, 4);
         }
 
       case Country.germany:
         {
-          return replaceAll(' ', '').substring(2, 4);
+          return prepareIban().substring(2, 4);
         }
 
       case Country.france:
         {
-          return replaceAll(' ', '').substring(2, 4);
+          return prepareIban().substring(2, 4);
         }
 
       case Country.italy:
         {
-          return replaceAll(' ', '').substring(2, 4);
+          return prepareIban().substring(2, 4);
         }
 
       default:
         {
-          return replaceAll(' ', '').substring(2, 4);
+          return prepareIban().substring(2, 4);
         }
     }
   }
 
-  String bankCode(Country country) {
+  String getBankCode(Country country) {
     switch (country) {
       case Country.turkish:
         {
-          return replaceAll(' ', '').substring(4, 9);
+          return prepareIban().substring(4, 9);
         }
 
       case Country.england:
         {
-          return replaceAll(' ', '').substring(4, 8);
+          return prepareIban().substring(4, 8);
         }
 
       case Country.germany:
         {
-          return replaceAll(' ', '').substring(4, 12);
+          return prepareIban().substring(4, 12);
         }
 
       case Country.france:
         {
-          return replaceAll(' ', '').substring(4, 9);
+          return prepareIban().substring(4, 9);
         }
 
       case Country.italy:
         {
-          return replaceAll(' ', '').substring(5, 10);
+          return prepareIban().substring(5, 10);
         }
 
       default:
         {
-          return replaceAll(' ', '').substring(4, 9);
+          return prepareIban().substring(4, 9);
         }
     }
   }
 
-  String branchCode(Country country) {
+  String getBranchCode(Country country) {
     switch (country) {
       case Country.turkish:
         {
-          return replaceAll(' ', '').substring(0, 0);
+          return prepareIban().substring(0, 0);
         }
 
       case Country.england:
         {
-          return replaceAll(' ', '').substring(0, 0);
+          return prepareIban().substring(0, 0);
         }
 
       case Country.germany:
         {
-          return replaceAll(' ', '').substring(0, 0);
+          return prepareIban().substring(0, 0);
         }
 
       case Country.france:
         {
-          return replaceAll(' ', '').substring(9, 14);
+          return prepareIban().substring(9, 14);
         }
 
       case Country.italy:
         {
-          return replaceAll(' ', '').substring(10, 15);
+          return prepareIban().substring(10, 15);
         }
 
       default:
         {
-          return replaceAll(' ', '').substring(0, 0);
+          return prepareIban().substring(0, 0);
         }
     }
   }
 
-  String sortCode(Country country) {
+  String getSortCode(Country country) {
     switch (country) {
       case Country.turkish:
         {
-          return replaceAll(' ', '').substring(0, 0);
+          return prepareIban().substring(0, 0);
         }
 
       case Country.england:
         {
-          return replaceAll(' ', '').substring(8, 14);
+          return prepareIban().substring(8, 14);
         }
 
       case Country.germany:
         {
-          return replaceAll(' ', '').substring(0, 0);
+          return prepareIban().substring(0, 0);
         }
 
       case Country.france:
         {
-          return replaceAll(' ', '').substring(0, 0);
+          return prepareIban().substring(0, 0);
         }
 
       case Country.italy:
         {
-          return replaceAll(' ', '').substring(0, 0);
+          return prepareIban().substring(0, 0);
         }
 
       default:
         {
-          return replaceAll(' ', '').substring(0, 0);
+          return prepareIban().substring(0, 0);
         }
     }
   }
 
-  String nationalCheckDigit(Country country) {
+  String getNationalCheckDigit(Country country) {
     switch (country) {
       case Country.turkish:
         {
-          return replaceAll(' ', '').substring(9, 10);
+          return prepareIban().substring(9, 10);
         }
 
       case Country.england:
         {
-          return replaceAll(' ', '').substring(0, 0);
+          return prepareIban().substring(0, 0);
         }
 
       case Country.germany:
         {
-          return replaceAll(' ', '').substring(0, 0);
+          return prepareIban().substring(0, 0);
         }
 
       case Country.france:
         {
-          return replaceAll(' ', '').substring(25, 27);
+          return prepareIban().substring(25, 27);
         }
 
       case Country.italy:
         {
-          return replaceAll(' ', '').substring(4, 5);
+          return prepareIban().substring(4, 5);
         }
 
       default:
         {
-          return replaceAll(' ', '').substring(9, 10);
+          return prepareIban().substring(9, 10);
         }
     }
   }
 
-  String bankAccountNumber(Country country) {
+  String getBankAccountNumber(Country country) {
     switch (country) {
       case Country.turkish:
         {
-          return replaceAll(' ', '').substring(10, 26);
+          return prepareIban().substring(10, 26);
         }
 
       case Country.england:
         {
-          return replaceAll(' ', '').substring(14, 22);
+          return prepareIban().substring(14, 22);
         }
 
       case Country.germany:
         {
-          return replaceAll(' ', '').substring(12, 22);
+          return prepareIban().substring(12, 22);
         }
 
       case Country.france:
         {
-          return replaceAll(' ', '').substring(14, 25);
+          return prepareIban().substring(14, 25);
         }
 
       case Country.italy:
         {
-          return replaceAll(' ', '').substring(15, 27);
+          return prepareIban().substring(15, 27);
         }
 
       default:
         {
-          return replaceAll(' ', '').substring(10, 26);
+          return prepareIban().substring(10, 26);
         }
     }
+  }
+  // Global
+  String prepareIban() {
+    return replaceAll(' ', '').toUpperCase();
   }
 }
 
 extension ValidatorExtensions on String {
-  bool ibanValidate(Country country, String iban) {
+  // Global
+  bool checkIsAlphaNumeric() {
+    return contains(RegExp('^[A-Z0-9]+'));
+  }
+  // Global
+  bool checkIsAlpha() {
+    return contains(RegExp('^[A-Z]+'));
+  }
+  // Global
+  bool checkIsNumeric() {
+    return contains(RegExp('^[0-9]+'));
+  }
+
+  bool nationalCheckDigitValidate(Country country, String ibanString) {
+    var iban = ibanString.prepareIban();
+
     switch (country) {
       case Country.turkish:
         {
-          return (iban.replaceAll(' ', '').length == 26 && iban.countryCode(country) == "TR") ? true : false;
-        }
-
-      case Country.england:
-        {
-          return (iban.replaceAll(' ', '').length == 22 && iban.countryCode(country) == "GB") ? true : false;
-        }
-
-      case Country.germany:
-        {
-          return (iban.replaceAll(' ', '').length == 22 && iban.countryCode(country) == "DE") ? true : false;
-        }
-
-      case Country.france:
-        {
-          return (iban.replaceAll(' ', '').length == 27 && iban.countryCode(country) == "FR") ? true : false;
-        }
-
-      case Country.italy:
-        {
-          return (iban.replaceAll(' ', '').length == 27 && iban.countryCode(country) == "IT") ? true : false;
+          return (
+              iban.getNationalCheckDigit(country) != "0"
+              || !iban.getNationalCheckDigit(country).checkIsNumeric()
+          ) ? false : true;
         }
 
       default:
         {
           return false;
+        }
+    }
+  }
+
+  bool ibanValidate(Country country, String ibanString) {
+    var iban = ibanString.prepareIban();
+
+    switch (country) {
+      case Country.turkish:
+        {
+          return (
+              iban.isEmpty
+              || iban.length != 26
+              || !iban.checkIsAlphaNumeric()
+              || !iban.getCountryCode(country).checkIsAlpha()
+              || iban.getCountryCode(country) != "TR"
+              || !iban.getNationalCheckDigit(country).checkIsNumeric()
+              || iban.getNationalCheckDigit(country) != "0"
+          ) ? false : true;
+        }
+
+      default:
+        {
+          return false;
+        }
+    }
+  }
+}
+
+extension GenerateExtensions on String {
+  String generateIban(Country country) {
+    switch (country) {
+      case Country.turkish:
+        {
+          return "TR${Utils.generateCheckDigits(10,99)}";
+        }
+
+      default:
+        {
+          return prepareIban().substring(0, 0);
         }
     }
   }
