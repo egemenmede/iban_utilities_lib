@@ -7,6 +7,7 @@ class IbanUtilities {
   String iban;
   IbanUtilities(this.iban);
 
+  bool ibanValidate(Country country) => iban.ibanValidate(country, iban);
   String countryCode(Country country) => iban.countryCode(country);
   String checkDigits(Country country) => iban.checkDigits(country);
   String bankCode(Country country) => iban.bankCode(country);
