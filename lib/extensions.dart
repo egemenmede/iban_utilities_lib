@@ -243,6 +243,18 @@ extension StringExtensions on String {
   String prepareIban() {
     return replaceAll(' ', '').toUpperCase();
   }
+  // Global
+  String getFirstFourCharacters() {
+    return prepareIban().substring(0, 4);
+  }
+  // Global
+  String getAfterTheFirstFourCharacters() {
+    return prepareIban().substring(4, length);
+  }
+  // Global
+  String getReverseIban() {
+    return prepareIban().getAfterTheFirstFourCharacters()+prepareIban().getFirstFourCharacters();
+  }
 }
 
 extension ValidatorExtensions on String {
@@ -258,17 +270,22 @@ extension ValidatorExtensions on String {
   bool checkIsNumeric() {
     return contains(RegExp('^[0-9]+'));
   }
-
-  bool nationalCheckDigitValidate(Country country, String ibanString) {
-    var iban = ibanString.prepareIban();
+  // Private
+  bool _getCheckIbanAlgorithm(Country country){
+    List<String> strArr =  ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+    List<String> intArr =  ["10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35"];
 
     switch (country) {
       case Country.turkish:
         {
-          return (
-              iban.getNationalCheckDigit(country) != "0"
-              || !iban.getNationalCheckDigit(country).checkIsNumeric()
-          ) ? false : true;
+          String tmp = getReverseIban();
+          for (int i = 0; i < strArr.length; i++){
+            tmp = tmp.replaceAll(strArr[i], intArr[i]);
+          }
+
+          double value = double.parse(tmp);
+          double mod = value % 97;
+          return (mod != 1);
         }
 
       default:
@@ -278,8 +295,8 @@ extension ValidatorExtensions on String {
     }
   }
 
-  bool ibanValidate(Country country, String ibanString) {
-    var iban = ibanString.prepareIban();
+  bool ibanValidate(Country country) {
+    var iban = prepareIban();
 
     switch (country) {
       case Country.turkish:
@@ -292,6 +309,7 @@ extension ValidatorExtensions on String {
               || iban.getCountryCode(country) != "TR"
               || !iban.getNationalCheckDigit(country).checkIsNumeric()
               || iban.getNationalCheckDigit(country) != "0"
+              || !iban._getCheckIbanAlgorithm(country)
           ) ? false : true;
         }
 
