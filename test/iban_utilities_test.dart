@@ -4,8 +4,8 @@ import 'package:iban_utilities/iban_utilities.dart';
 
 void main() {
   group("Sections of Turkish IBAN Test", () {
-    var sampleIban = "TR33 0006 1005 1978 6457 8413 26";
-    final ibanUtilities = IbanUtilities(sampleIban);
+    var sampleTrueIban = "TR33 0006 1005 1978 6457 8413 26";
+    final ibanUtilities = IbanUtilities(sampleTrueIban);
 
     test('Turkish countryCode check', () {
       expect(ibanUtilities.countryCode(Country.turkish), "TR");
@@ -33,8 +33,8 @@ void main() {
   });
 
   group("Sections of United Kingdom IBAN Test", () {
-    var sampleIban = "GB29 NWBK 6016 1331 9268 19";
-    final ibanUtilities = IbanUtilities(sampleIban);
+    var sampleTrueIban = "GB29 NWBK 6016 1331 9268 19";
+    final ibanUtilities = IbanUtilities(sampleTrueIban);
 
     test('United Kingdom countryCode check', () {
       expect(ibanUtilities.countryCode(Country.england), "GB");
@@ -62,8 +62,8 @@ void main() {
   });
 
   group("Sections of Germany IBAN Test", () {
-    var sampleIban = "DE89 3704 0044 0532 0130 00";
-    final ibanUtilities = IbanUtilities(sampleIban);
+    var sampleTrueIban = "DE89 3704 0044 0532 0130 00";
+    final ibanUtilities = IbanUtilities(sampleTrueIban);
 
     test('Germany countryCode check', () {
       expect(ibanUtilities.countryCode(Country.germany), "DE");
@@ -91,8 +91,8 @@ void main() {
   });
 
   group("Sections of France IBAN Test", () {
-    var sampleIban = "FR14 2004 1010 0505 0001 3M02 606";
-    final ibanUtilities = IbanUtilities(sampleIban);
+    var sampleTrueIban = "FR14 2004 1010 0505 0001 3M02 606";
+    final ibanUtilities = IbanUtilities(sampleTrueIban);
 
     test('France countryCode check', () {
       expect(ibanUtilities.countryCode(Country.france), "FR");
@@ -120,8 +120,8 @@ void main() {
   });
 
   group("Sections of Italy IBAN Test", () {
-    var sampleIban = "IT60 X054 2811 1010 0000 0123 456";
-    final ibanUtilities = IbanUtilities(sampleIban);
+    var sampleTrueIban = "IT60 X054 2811 1010 0000 0123 456";
+    final ibanUtilities = IbanUtilities(sampleTrueIban);
 
     test('Italy countryCode check', () {
       expect(ibanUtilities.countryCode(Country.italy), "IT");
@@ -147,4 +147,50 @@ void main() {
       expect(ibanUtilities.bankAccountNumber(Country.italy), "000000123456");
     });
   });
+
+  group("Turkish IBAN Validate Test", () {
+    var sampleTrueIban = "TR33 0006 1005 1978 6457 8413 26";
+    final ibanUtilities = IbanUtilities(sampleTrueIban);
+
+    test('Turkish IBAN Validate Check', () {
+      expect(ibanUtilities.ibanValidate(Country.turkish), true);
+    });
+  });
+
+  group("United Kingdom IBAN Validate Test", () {
+    var sampleTrueIban = "GB29 NWBK 6016 1331 9268 19";
+    final ibanUtilities = IbanUtilities(sampleTrueIban);
+
+    test('United Kingdom IBAN Validate Check', () {
+      expect(ibanUtilities.ibanValidate(Country.england), true);
+    });
+  });
+
+  group("Germany IBAN Validate Test", () {
+    var sampleTrueIban = "DE89 3704 0044 0532 0130 00";
+    final ibanUtilities = IbanUtilities(sampleTrueIban);
+
+    test('Germany IBAN Validate Check', () {
+      expect(ibanUtilities.ibanValidate(Country.germany), true);
+    });
+  });
+
+  group("France IBAN Validate Test", () {
+    var sampleTrueIban = "FR14 2004 1010 0505 0001 3M02 606";
+    final ibanUtilities = IbanUtilities(sampleTrueIban);
+
+    test('France IBAN Validate Check', () {
+      expect(ibanUtilities.ibanValidate(Country.france), true);
+    });
+  });
+
+  group("Italy IBAN Validate Test", () {
+    var sampleTrueIban = "IT60 X054 2811 1010 0000 0123 456";
+    final ibanUtilities = IbanUtilities(sampleTrueIban);
+
+    test('Italy IBAN Validate Check', () {
+      expect(ibanUtilities.ibanValidate(Country.italy), true);
+    });
+  });
+
 }
