@@ -48,4 +48,12 @@ void main() {
       expect("1.23f".checkIsNumericWithRegEx(), false);
     });
   });
+
+  group("getSortCode All Variation Test", () {
+    test('getSortCode check - Condition.1', () {
+      var sampleTrueIban = "TR33 0006 1005 1978 6457 8413 26";
+      var testArguman = sampleTrueIban.getSortCode(Country.testcountry);
+      expect("", testArguman);
+    });
+  });
 }
