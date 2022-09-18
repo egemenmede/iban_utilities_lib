@@ -1,5 +1,7 @@
 import 'dart:math';
 
+import 'package:iban_utilities/enums_countries.dart';
+
 class Utils {
   static final Random _random = Random.secure();
 
@@ -23,6 +25,40 @@ class Utils {
         .join();
 
     return randomString;
+  }
+
+  static String _getIbanChecksum(String str){
+    List<String> strArr =  ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+    List<String> intArr =  ["10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35"];
+
+    var iban = str.substring(4) + str.substring(0, 4);
+
+    for (int i = 0; i < strArr.length; i++){
+      iban = iban.replaceAll(strArr[i], intArr[i]);
+    }
+
+    var ibanInt = BigInt.parse(iban);
+    var remainder = ibanInt.remainder(BigInt.from(97)).toInt();
+    return (98-remainder).toString();
+  }
+
+  static String generateIban(Country country) {
+    String staticSampleBankCode = "00062";
+    switch (country) {
+      case Country.turkish:
+        {
+          String lastPart = Utils.generateRandomNumeric(16);
+          String template =  _getIbanChecksum("TR00${staticSampleBankCode}0$lastPart");
+          var newIban = "TR$template${staticSampleBankCode}0$lastPart";
+          print("newIban: $newIban");
+          return newIban;
+        }
+
+      default:
+        {
+          return "Generate sırasında bir hata oluştu.";
+        }
+    }
   }
 
 }
