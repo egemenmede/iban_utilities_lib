@@ -31,7 +31,7 @@ extension StringExtensions on String {
 
       default:
         {
-          return prepareIban().substring(0, 2);
+          return "";
         }
     }
   }
@@ -65,7 +65,7 @@ extension StringExtensions on String {
 
       default:
         {
-          return prepareIban().substring(2, 4);
+          return "";
         }
     }
   }
@@ -99,7 +99,7 @@ extension StringExtensions on String {
 
       default:
         {
-          return prepareIban().substring(4, 9);
+          return "";
         }
     }
   }
@@ -108,17 +108,17 @@ extension StringExtensions on String {
     switch (country) {
       case Country.turkish:
         {
-          return prepareIban().substring(0, 0);
+          return "";
         }
 
       case Country.england:
         {
-          return prepareIban().substring(0, 0);
+          return "";
         }
 
       case Country.germany:
         {
-          return prepareIban().substring(0, 0);
+          return "";
         }
 
       case Country.france:
@@ -133,7 +133,7 @@ extension StringExtensions on String {
 
       default:
         {
-          return prepareIban().substring(0, 0);
+          return "";
         }
     }
   }
@@ -142,7 +142,7 @@ extension StringExtensions on String {
     switch (country) {
       case Country.turkish:
         {
-          return prepareIban().substring(0, 0);
+          return "";
         }
 
       case Country.england:
@@ -152,22 +152,22 @@ extension StringExtensions on String {
 
       case Country.germany:
         {
-          return prepareIban().substring(0, 0);
+          return "";
         }
 
       case Country.france:
         {
-          return prepareIban().substring(0, 0);
+          return "";
         }
 
       case Country.italy:
         {
-          return prepareIban().substring(0, 0);
+          return "";
         }
 
       default:
         {
-          return prepareIban().substring(0, 0);
+          return "";
         }
     }
   }
@@ -181,12 +181,12 @@ extension StringExtensions on String {
 
       case Country.england:
         {
-          return prepareIban().substring(0, 0);
+          return "";
         }
 
       case Country.germany:
         {
-          return prepareIban().substring(0, 0);
+          return "";
         }
 
       case Country.france:
@@ -201,7 +201,7 @@ extension StringExtensions on String {
 
       default:
         {
-          return prepareIban().substring(9, 10);
+          return "";
         }
     }
   }
@@ -235,7 +235,7 @@ extension StringExtensions on String {
 
       default:
         {
-          return prepareIban().substring(10, 26);
+          return "";
         }
     }
   }
@@ -248,15 +248,16 @@ extension StringExtensions on String {
 extension ValidatorExtensions on String {
   // Global
   bool checkIsAlphaNumeric() {
-    return contains(RegExp('^[A-Z0-9]+'));
+    return contains(RegExp(r'^([A-Z0-9]*)$'));
   }
   // Global
   bool checkIsAlpha() {
-    return contains(RegExp('^[A-Z]+'));
+    return contains(RegExp(r'^([A-Z]*)$'));
   }
   // Global
-  bool checkIsNumeric() {
-    return contains(RegExp('^[0-9]+'));
+  bool checkIsNumericWithRegEx() {
+    final numericRegex = RegExp(r'^([0-9]*)$');
+    return numericRegex.hasMatch(this);
   }
 
   // Private
