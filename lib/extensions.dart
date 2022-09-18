@@ -247,11 +247,11 @@ extension StringExtensions on String {
 
 extension ValidatorExtensions on String {
   // Global
-  bool checkIsAlphaNumeric() {
+  bool checkIsAlphaNumericWithRegEx() {
     return contains(RegExp(r'^([A-Z0-9]*)$'));
   }
   // Global
-  bool checkIsAlpha() {
+  bool checkIsAlphaWithRegEx() {
     return contains(RegExp(r'^([A-Z]*)$'));
   }
   // Global
@@ -295,8 +295,8 @@ extension ValidatorExtensions on String {
           return (
               iban.isEmpty
               || iban.length != 26
-              || !iban.checkIsAlphaNumeric()
-              || !iban.getCountryCode(country).checkIsAlpha()
+              || !iban.checkIsAlphaNumericWithRegEx()
+              || !iban.getCountryCode(country).checkIsAlphaWithRegEx()
               || iban.getCountryCode(country) != "TR"
               //|| !iban.getNationalCheckDigit(country).checkIsNumeric()
               //|| iban.getNationalCheckDigit(country) != "0"
