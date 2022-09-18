@@ -208,8 +208,7 @@ void main() {
 
   group("Generate Turkish IBAN Validate Test", () {
     test('Generate IBAN Validate Check', () {
-      var sampleGenerateIban = Utils.generateIban(Country.turkish);
-      final ibanUtilities = IbanUtilities(sampleGenerateIban);
+      final ibanUtilities = IbanUtilities.generateIban(Country.turkish);
       expect(ibanUtilities.ibanValidate(Country.turkish), true);
     });
   });
