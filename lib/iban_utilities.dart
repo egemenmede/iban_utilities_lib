@@ -5,8 +5,11 @@ import 'package:iban_utilities/extensions.dart';
 import 'package:iban_utilities/utils.dart';
 
 class IbanUtilities {
-  String iban;
+  late String iban;
   IbanUtilities(this.iban);
+  IbanUtilities.generateIban(Country country){
+    iban = Utils.generateIban(country);
+  }
 
   bool ibanValidate(Country country) => iban.ibanValidate(country);
 
@@ -19,5 +22,5 @@ class IbanUtilities {
   String bankAccountNumber(Country country) => iban.getBankAccountNumber(country);
 
   //TODO String generateIban(Country country) => generateIban(country);
-  String generateIban(Country country) => Utils.generateIban(country);
+
 }
