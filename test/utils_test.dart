@@ -11,7 +11,7 @@ void main() {
 
     test('generateRandomUpperCaseAlpha function - IsAlpha check', () {
       var digit = Utils.generateRandomUpperCaseAlpha(5);
-      expect(digit.toString().checkIsAlpha(), true);
+      expect(digit.toString().checkIsAlphaWithRegEx(), true);
     });
 
     test('generateCheckDigits function - Length check', () {
