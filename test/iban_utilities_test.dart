@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:iban_utilities/enums_countries.dart';
 import 'package:iban_utilities/iban_utilities.dart';
+import 'package:iban_utilities/utils.dart';
 
 void main() {
   group("Sections of Turkish IBAN Test", () {
@@ -202,6 +203,14 @@ void main() {
       var sampleFalseIban = "TR33 0006 1205 1978 6457 8413 26";
       final ibanUtilities = IbanUtilities(sampleFalseIban);
       expect(ibanUtilities.ibanValidate(Country.turkish), false);
+    });
+  });
+
+  group("Generate Turkish IBAN Validate Test", () {
+    test('Generate IBAN Validate Check', () {
+      var sampleGenerateIban = Utils.generateIban(Country.turkish);
+      final ibanUtilities = IbanUtilities(sampleGenerateIban);
+      expect(ibanUtilities.ibanValidate(Country.turkish), true);
     });
   });
 
