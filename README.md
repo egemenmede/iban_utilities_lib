@@ -4,6 +4,20 @@
 
 **IBAN (International Bank Account Number - Uluslararası Banka Hesap Numarası)**, Türkiyede **26** karakterlik harf ve sayılardan oluşan uluslararası kabul görmüş bir koddur. Bu kod içerisindeki belirli her karakter grubu, ayrı bir bilgiyi içerir.
 
+### Türkiye IBAN Standartları ([Vikipedi](https://tr.wikipedia.org/wiki/IBAN))
+
+Türkiye'nin **IBAN** uzunluğu **26** hane olarak belirlenmiştir. Türkiye IBAN’ın biçimi aşağıdadır:
+
+![IBAN Biçimi](https://upload.wikimedia.org/wikipedia/commons/b/b9/IBAN-Structure-TR.png)
+
+- Oluşturulan **IBAN** içinde **“İ,Ç,Ğ,Ö,Ş,Ü”** harfleri ve **küçük harf** kullanılmaz .
+- Türkiye’nin ülke kodu **ISO 3166** No.lu standarda göre “**TR**”dir.
+- (Değişik fıkra: RG-5/8/2021 – 2021/5 Sayılı Tebliğ/3. md.) IBAN oluşturulurken kullanılacak ödeme hizmeti sağlayıcısı kodları Türkiye Cumhuriyet Merkez Bankası tarafından belirlenir.
+- (Değişik fıkra: RG-5/8/2021 – 2021/5 Sayılı Tebliğ/3. md.) Hesap numarası alanı için standart bir format yoktur. Ancak hesap numarası olarak tespit edilen 16 hanenin sağa dayalı olarak yazılması ve varsa sol tarafındaki boşlukların sıfır ile doldurulması zorunludur.
+- Rezerv Alan Bölümü, tüm hesap numaraları için **sıfır** olarak doldurulur.
+- Kontrol basamaklarının hesaplanması ve doğrulanması, bu Tebliğin 2 ve 3 numaralı ekinde gösterilen ISO 7064 No.lu standarda göre oluşturulan MOD 97-10 yöntemi kullanılarak yapılır.
+
+
 ### IBAN Kodunun Detayları
 
 **Türkiye**'de **IBAN** kodları **26** karakterden oluşur:
