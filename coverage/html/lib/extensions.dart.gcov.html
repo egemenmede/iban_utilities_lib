@@ -31,13 +31,13 @@
             <td class="headerValue">lcov.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">94</td>
             <td class="headerCovTableEntry">96</td>
-            <td class="headerCovTableEntryHi">97.9 %</td>
+            <td class="headerCovTableEntry">96</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2022-09-18 19:05:58</td>
+            <td class="headerValue">2022-09-18 19:13:10</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -200,29 +200,29 @@
 <a name="138"><span class="lineNum">     138 </span>            :     }</a>
 <a name="139"><span class="lineNum">     139 </span>            :   }</a>
 <a name="140"><span class="lineNum">     140 </span>            : </a>
-<a name="141"><span class="lineNum">     141 </span><span class="lineCov">          1 :   String getSortCode(Country country) {</span></a>
+<a name="141"><span class="lineNum">     141 </span><span class="lineCov">          2 :   String getSortCode(Country country) {</span></a>
 <a name="142"><span class="lineNum">     142 </span>            :     switch (country) {</a>
-<a name="143"><span class="lineNum">     143 </span><span class="lineCov">          1 :       case Country.turkish:</span></a>
+<a name="143"><span class="lineNum">     143 </span><span class="lineCov">          2 :       case Country.turkish:</span></a>
 <a name="144"><span class="lineNum">     144 </span>            :         {</a>
 <a name="145"><span class="lineNum">     145 </span>            :           return &quot;&quot;;</a>
 <a name="146"><span class="lineNum">     146 </span>            :         }</a>
 <a name="147"><span class="lineNum">     147 </span>            : </a>
-<a name="148"><span class="lineNum">     148 </span><span class="lineCov">          1 :       case Country.england:</span></a>
+<a name="148"><span class="lineNum">     148 </span><span class="lineCov">          2 :       case Country.england:</span></a>
 <a name="149"><span class="lineNum">     149 </span>            :         {</a>
 <a name="150"><span class="lineNum">     150 </span><span class="lineCov">          2 :           return prepareIban().substring(8, 14);</span></a>
 <a name="151"><span class="lineNum">     151 </span>            :         }</a>
 <a name="152"><span class="lineNum">     152 </span>            : </a>
-<a name="153"><span class="lineNum">     153 </span><span class="lineCov">          1 :       case Country.germany:</span></a>
+<a name="153"><span class="lineNum">     153 </span><span class="lineCov">          2 :       case Country.germany:</span></a>
 <a name="154"><span class="lineNum">     154 </span>            :         {</a>
 <a name="155"><span class="lineNum">     155 </span>            :           return &quot;&quot;;</a>
 <a name="156"><span class="lineNum">     156 </span>            :         }</a>
 <a name="157"><span class="lineNum">     157 </span>            : </a>
-<a name="158"><span class="lineNum">     158 </span><span class="lineNoCov">          0 :       case Country.france:</span></a>
+<a name="158"><span class="lineNum">     158 </span><span class="lineCov">          1 :       case Country.france:</span></a>
 <a name="159"><span class="lineNum">     159 </span>            :         {</a>
 <a name="160"><span class="lineNum">     160 </span>            :           return &quot;&quot;;</a>
 <a name="161"><span class="lineNum">     161 </span>            :         }</a>
 <a name="162"><span class="lineNum">     162 </span>            : </a>
-<a name="163"><span class="lineNum">     163 </span><span class="lineNoCov">          0 :       case Country.italy:</span></a>
+<a name="163"><span class="lineNum">     163 </span><span class="lineCov">          1 :       case Country.italy:</span></a>
 <a name="164"><span class="lineNum">     164 </span>            :         {</a>
 <a name="165"><span class="lineNum">     165 </span>            :           return &quot;&quot;;</a>
 <a name="166"><span class="lineNum">     166 </span>            :         }</a>
@@ -309,11 +309,11 @@
 <a name="247"><span class="lineNum">     247 </span>            : </a>
 <a name="248"><span class="lineNum">     248 </span>            : extension ValidatorExtensions on String {</a>
 <a name="249"><span class="lineNum">     249 </span>            :   // Global</a>
-<a name="250"><span class="lineNum">     250 </span><span class="lineCov">          1 :   bool checkIsAlphaNumeric() {</span></a>
+<a name="250"><span class="lineNum">     250 </span><span class="lineCov">          1 :   bool checkIsAlphaNumericWithRegEx() {</span></a>
 <a name="251"><span class="lineNum">     251 </span><span class="lineCov">          2 :     return contains(RegExp(r'^([A-Z0-9]*)$'));</span></a>
 <a name="252"><span class="lineNum">     252 </span>            :   }</a>
 <a name="253"><span class="lineNum">     253 </span>            :   // Global</a>
-<a name="254"><span class="lineNum">     254 </span><span class="lineCov">          2 :   bool checkIsAlpha() {</span></a>
+<a name="254"><span class="lineNum">     254 </span><span class="lineCov">          2 :   bool checkIsAlphaWithRegEx() {</span></a>
 <a name="255"><span class="lineNum">     255 </span><span class="lineCov">          4 :     return contains(RegExp(r'^([A-Z]*)$'));</span></a>
 <a name="256"><span class="lineNum">     256 </span>            :   }</a>
 <a name="257"><span class="lineNum">     257 </span>            :   // Global</a>
@@ -357,8 +357,8 @@
 <a name="295"><span class="lineNum">     295 </span>            :           return (</a>
 <a name="296"><span class="lineNum">     296 </span><span class="lineCov">          1 :               iban.isEmpty</span></a>
 <a name="297"><span class="lineNum">     297 </span><span class="lineCov">          2 :               || iban.length != 26</span></a>
-<a name="298"><span class="lineNum">     298 </span><span class="lineCov">          1 :               || !iban.checkIsAlphaNumeric()</span></a>
-<a name="299"><span class="lineNum">     299 </span><span class="lineCov">          2 :               || !iban.getCountryCode(country).checkIsAlpha()</span></a>
+<a name="298"><span class="lineNum">     298 </span><span class="lineCov">          1 :               || !iban.checkIsAlphaNumericWithRegEx()</span></a>
+<a name="299"><span class="lineNum">     299 </span><span class="lineCov">          2 :               || !iban.getCountryCode(country).checkIsAlphaWithRegEx()</span></a>
 <a name="300"><span class="lineNum">     300 </span><span class="lineCov">          2 :               || iban.getCountryCode(country) != &quot;TR&quot;</span></a>
 <a name="301"><span class="lineNum">     301 </span>            :               //|| !iban.getNationalCheckDigit(country).checkIsNumeric()</a>
 <a name="302"><span class="lineNum">     302 </span>            :               //|| iban.getNationalCheckDigit(country) != &quot;0&quot;</a>
