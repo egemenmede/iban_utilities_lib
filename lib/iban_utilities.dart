@@ -2,6 +2,7 @@ library iban_utilities;
 
 import 'package:iban_utilities/enums_countries.dart';
 import 'package:iban_utilities/extensions.dart';
+import 'package:iban_utilities/utils.dart';
 
 class IbanUtilities {
   String iban;
@@ -17,5 +18,6 @@ class IbanUtilities {
   String nationalCheckDigit(Country country) => iban.getNationalCheckDigit(country);
   String bankAccountNumber(Country country) => iban.getBankAccountNumber(country);
 
-  //TODO String generateIban(Country country) => iban.generateIban(country);
+  //TODO String generateIban(Country country) => generateIban(country);
+  String generateIban(Country country) => Utils.generateIban(country);
 }
