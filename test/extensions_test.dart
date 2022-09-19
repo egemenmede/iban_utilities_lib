@@ -54,12 +54,7 @@ void main() {
   group("ValidatorExtensions Test", () {
     // TODO: checkIsAlphaNumericWithRegEx
     // TODO: checkIsAlphaWithRegEx
-    // TODO: checkIsNumericWithRegEx
-    // TODO: checkIbanMod97Algorithm
-    // TODO: ibanValidate
-  });
 
-  group("checkIsNumericWithRegEx All Variation Test", () {
     test('checkIsNumericWithRegEx check - Condition.1', () {
       expect("12345".checkIsNumericWithRegEx(), true);
     });
@@ -83,5 +78,8 @@ void main() {
     test('checkIsNumericWithRegEx check - Condition.6', () {
       expect("1.23f".checkIsNumericWithRegEx(), false);
     });
+    
+    // TODO: checkIbanMod97Algorithm
+    // TODO: ibanValidate
   });
 }
