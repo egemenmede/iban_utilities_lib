@@ -1,7 +1,7 @@
 import 'package:iban_utilities/enums_countries.dart';
-import 'package:iban_utilities/utils.dart';
 
 extension StringExtensions on String {
+  /// Ülkeye göre 'Ülke Kodu' bilgisini geri döndürür.
   String getCountryCode(Country country) {
     switch (country) {
       case Country.turkish:
@@ -36,6 +36,7 @@ extension StringExtensions on String {
     }
   }
 
+  /// Ülkeye göre 'Kontrol Numarası' bilgisini geri döndürür.
   String getCheckDigits(Country country) {
     switch (country) {
       case Country.turkish:
@@ -70,6 +71,7 @@ extension StringExtensions on String {
     }
   }
 
+  /// Ülkeye göre 'Banka Kodu' bilgisini geri döndürür.
   String getBankCode(Country country) {
     switch (country) {
       case Country.turkish:
@@ -104,6 +106,7 @@ extension StringExtensions on String {
     }
   }
 
+  /// Ülkeye göre 'Şube Kodu' bilgisini geri döndürür.
   String getBranchCode(Country country) {
     switch (country) {
       case Country.turkish:
@@ -138,6 +141,7 @@ extension StringExtensions on String {
     }
   }
 
+  /// Ülkeye göre 'Sıralama Kodu' bilgisini geri döndürür.
   String getSortCode(Country country) {
     switch (country) {
       case Country.turkish:
@@ -172,6 +176,7 @@ extension StringExtensions on String {
     }
   }
 
+  /// Ülkeye göre 'Ulusal Kontrol Sayısı' bilgisini geri döndürür.
   String getNationalCheckDigit(Country country) {
     switch (country) {
       case Country.turkish:
@@ -206,6 +211,7 @@ extension StringExtensions on String {
     }
   }
 
+  /// Ülkeye göre 'Banka Hesap Numarası' bilgisini geri döndürür.
   String getBankAccountNumber(Country country) {
     switch (country) {
       case Country.turkish:
@@ -239,28 +245,32 @@ extension StringExtensions on String {
         }
     }
   }
-  // Global
+
+  /// Global.. Iban'ı kontrol için hazır. Büyük harfe çevirir ve gereksiz karakterleri kaldırır.
   String prepareIban() {
-    return replaceAll(' ', '').toUpperCase();
+    //return replaceAll(' ', '').toUpperCase();
+    return replaceAll(RegExp(r'[^a-zA-Z0-9]'), '').toUpperCase();
   }
 }
 
 extension ValidatorExtensions on String {
-  // Global
+  /// Global.. Iban içerisindeki karakterlerin Alfanümerik olup olmadığını kontrol eder.
   bool checkIsAlphaNumericWithRegEx() {
     return contains(RegExp(r'^([A-Z0-9]*)$'));
   }
-  // Global
+
+  /// Global.. Iban içerisindeki karakterlerin Metin olup olmadığını kontrol eder.
   bool checkIsAlphaWithRegEx() {
     return contains(RegExp(r'^([A-Z]*)$'));
   }
-  // Global
+
+  /// Global.. Iban içerisindeki karakterlerin Nümerik olup olmadığını kontrol eder.
   bool checkIsNumericWithRegEx() {
     final numericRegex = RegExp(r'^([0-9]*)$');
     return numericRegex.hasMatch(this);
   }
 
-  // Private
+  /// Ülkeye göre Iban'a ait Mod97 kontrolünü yaparak, geçerli bir Iban olup olmadığını bildirir.
   bool checkIbanMod97Algorithm(Country country){
     List<String> strArr =  ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
     List<String> intArr =  ["10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35"];
@@ -286,6 +296,7 @@ extension ValidatorExtensions on String {
     }
   }
 
+  /// Ülkeye göre Iban'nın geçerli olup olmadığını kontrol eder.
   bool ibanValidate(Country country) {
     var iban = prepareIban();
 
