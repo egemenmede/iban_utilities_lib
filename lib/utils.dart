@@ -3,8 +3,6 @@ import 'dart:math';
 import 'package:iban_utilities/enums_countries.dart';
 
 class Utils {
-  Utils._();
-
   static final Random _random = Random.secure();
 
   /// Verilen iki rakam arasında random sayı döndürür.
