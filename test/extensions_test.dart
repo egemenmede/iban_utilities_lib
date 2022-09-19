@@ -52,7 +52,25 @@ void main() {
   });
 
   group("ValidatorExtensions Test", () {
-    // TODO: checkIsAlphaNumericWithRegEx
+    test('checkIsAlphaNumericWithRegEx check - Condition.1', () {
+      expect("ABCDE".checkIsAlphaNumericWithRegEx(), true);
+    });
+
+    test('checkIsAlphaNumericWithRegEx check - Condition.2', () {
+      expect("12345".checkIsAlphaNumericWithRegEx(), true);
+    });
+
+    test('checkIsAlphaNumericWithRegEx check - Condition.3', () {
+      expect("1BC45".checkIsAlphaNumericWithRegEx(), true);
+    });
+
+    test('checkIsAlphaNumericWithRegEx check - Condition.4', () {
+      expect("1bc45".checkIsAlphaNumericWithRegEx(), false);
+    });
+
+    test('checkIsAlphaNumericWithRegEx check - Condition.5', () {
+      expect("1Bc45".checkIsAlphaNumericWithRegEx(), false);
+    });
 
     test('checkIsAlphaWithRegEx check - Condition.1', () {
       expect("ABCDE".checkIsAlphaWithRegEx(), true);
