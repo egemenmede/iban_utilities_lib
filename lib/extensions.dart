@@ -279,7 +279,8 @@ extension ValidatorExtensions on String {
     switch (country) {
       case Country.turkish:
         {
-          var iban = substring(4) + substring(0, 4);
+          var iban = prepareIban();
+          iban = iban.substring(4) + iban.substring(0, 4);
 
           for (int i = 0; i < strArr.length; i++){
             iban = iban.replaceAll(strArr[i], intArr[i]);
