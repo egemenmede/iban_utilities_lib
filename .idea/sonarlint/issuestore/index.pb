@@ -50,7 +50,5 @@ B
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
 <
 CHANGELOG.md,a/b/ab09011fa121d0a2bb9fa4ca76094f2482b902b7
-<
-pubspec.yaml,e/8/e8e045469170189f1d6ef12576bd01af132b1018
 E
 analysis_options.yaml,9/5/9573dd68c24611034c89c926cde7e71d100ed7ab
