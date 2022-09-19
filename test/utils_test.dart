@@ -24,5 +24,4 @@ void main() {
       expect(digit.toString().checkIsNumericWithRegEx(), true);
     });
   });
-
 }

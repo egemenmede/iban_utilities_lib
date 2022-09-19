@@ -248,7 +248,6 @@ extension StringExtensions on String {
 
   /// Global.. Iban'ı kontrol için hazır. Büyük harfe çevirir ve gereksiz karakterleri kaldırır.
   String prepareIban() {
-    //return replaceAll(' ', '').toUpperCase();
     return replaceAll(RegExp(r'[^a-zA-Z0-9]'), '').toUpperCase();
   }
 }
@@ -309,8 +308,6 @@ extension ValidatorExtensions on String {
               || !iban.checkIsAlphaNumericWithRegEx()
               || !iban.getCountryCode(country).checkIsAlphaWithRegEx()
               || iban.getCountryCode(country) != "TR"
-              //|| !iban.getNationalCheckDigit(country).checkIsNumeric()
-              //|| iban.getNationalCheckDigit(country) != "0"
               || !iban.checkIbanMod97Algorithm(country)
           ) ? false : true;
         }
