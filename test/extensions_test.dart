@@ -22,7 +22,17 @@ void main() {
       expect("", testArguman);
     });
 
-    // TODO: BranchCode
+    test('getBranchCode Other Country check - Condition.1', () {
+      var sampleTrueIban = "IT60 X054 2811 1010 0000 0123 456";
+      var testArguman = sampleTrueIban.getBranchCode(Country.italy);
+      expect("11101", testArguman);
+    });
+
+    test('getBranchCode Other Country check - Condition.2', () {
+      var sampleTrueIban = "TR33 0006 1005 1978 6457 8413 26";
+      var testArguman = sampleTrueIban.getBranchCode(Country.testcountry);
+      expect("", testArguman);
+    });
 
     test('getSortCode check - Condition.1', () {
       var sampleTrueIban = "TR33 0006 1005 1978 6457 8413 26";
