@@ -20,7 +20,4 @@ class IbanUtilities {
   String sortCode(Country country) => iban.getSortCode(country);
   String nationalCheckDigit(Country country) => iban.getNationalCheckDigit(country);
   String bankAccountNumber(Country country) => iban.getBankAccountNumber(country);
-
-  //TODO String generateIban(Country country) => generateIban(country);
-
 }
