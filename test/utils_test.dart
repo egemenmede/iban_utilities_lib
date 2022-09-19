@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:iban_utilities/extensions.dart';
-import 'package:iban_utilities/utils.dart';
+import 'package:iban_utilities_lib/extensions.dart';
+import 'package:iban_utilities_lib/utils.dart';
 
 void main() {
   group("Utils Functions Test", () {

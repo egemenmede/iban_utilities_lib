@@ -1,8 +1,10 @@
-library iban_utilities;
+library iban_utilities_lib;
 
-import 'package:iban_utilities/enums_countries.dart';
-import 'package:iban_utilities/extensions.dart';
-import 'package:iban_utilities/utils.dart';
+import 'package:iban_utilities_lib/enums_countries.dart';
+import 'package:iban_utilities_lib/extensions.dart';
+import 'package:iban_utilities_lib/utils.dart';
+
+
 
 class IbanUtilities {
   late String iban;

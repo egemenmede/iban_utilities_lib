@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:iban_utilities/enums_countries.dart';
+import 'package:iban_utilities_lib/enums_countries.dart';
 
 class Utils {
   static final Random _random = Random.secure();

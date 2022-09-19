@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:iban_utilities/enums_countries.dart';
-import 'package:iban_utilities/iban_utilities.dart';
+import 'package:iban_utilities_lib/enums_countries.dart';
+import 'package:iban_utilities_lib/iban_utilities.dart';
 
 void main() {
   group("Sections of Turkish IBAN Test", () {
