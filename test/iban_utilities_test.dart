@@ -183,11 +183,11 @@ void main() {
       expect(ibanUtilities.ibanValidate(Country.turkish), false);
     });
 
-    test('Turkish False IBAN Validate Check - Condition.5', () {
+    test('Turkish True IBAN Validate Check - Condition.5', () {
       // Iban numarası Alfanümerik olmalı.
       var sampleFalseIban = "TR33 0006 1005 1978 6457 8413_26";
       final ibanUtilities = IbanUtilities(sampleFalseIban);
-      expect(ibanUtilities.ibanValidate(Country.turkish), false);
+      expect(ibanUtilities.ibanValidate(Country.turkish), true);
     });
 
     test('Turkish False IBAN Validate Check - Condition.6', () {
