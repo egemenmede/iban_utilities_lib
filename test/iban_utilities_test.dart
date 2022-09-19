@@ -205,8 +205,8 @@ void main() {
     });
   });
 
-  group("Generate Turkish IBAN Validate Test", () {
-    test('Generate IBAN Validate Check', () {
+  group("Verification of the generated Turkish IBAN Test", () {
+    test('Verification of the generated Turkish IBAN Check', () {
       final ibanUtilities = IbanUtilities.generateIban(Country.turkish);
       expect(ibanUtilities.ibanValidate(Country.turkish), true);
     });
