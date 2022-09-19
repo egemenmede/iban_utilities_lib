@@ -4,51 +4,105 @@ import 'package:iban_utilities/extensions.dart';
 
 void main() {
   group("StringExtensions Test", () {
-    test('getCountryCode Other Country check', () {
-      var sampleTrueIban = "TR33 0006 1005 1978 6457 8413 26";
-      var testArguman = sampleTrueIban.getCountryCode(Country.testcountry);
-      expect("", testArguman);
+    group("getCountryCode Tests", () {
+      test('getCountryCode Other Country check', () {
+        var sampleTrueIban = "TR33 0006 1005 1978 6457 8413 26";
+        var testArguman = sampleTrueIban.getCountryCode(Country.testcountry);
+        expect("", testArguman);
+      });
     });
 
-    test('getCheckDigits Other Country check', () {
-      var sampleTrueIban = "TR33 0006 1005 1978 6457 8413 26";
-      var testArguman = sampleTrueIban.getCheckDigits(Country.testcountry);
-      expect("", testArguman);
+    group("getCheckDigits Tests", () {
+      test('getCheckDigits Other Country check', () {
+        var sampleTrueIban = "TR33 0006 1005 1978 6457 8413 26";
+        var testArguman = sampleTrueIban.getCheckDigits(Country.testcountry);
+        expect("", testArguman);
+      });
     });
 
-    test('getBankCode Other Country check', () {
-      var sampleTrueIban = "TR33 0006 1005 1978 6457 8413 26";
-      var testArguman = sampleTrueIban.getBankCode(Country.testcountry);
-      expect("", testArguman);
+    group("getBankCode Tests", () {
+      test('getBankCode Other Country check', () {
+        var sampleTrueIban = "TR33 0006 1005 1978 6457 8413 26";
+        var testArguman = sampleTrueIban.getBankCode(Country.testcountry);
+        expect("", testArguman);
+      });
     });
 
-    test('getBranchCode Other Country check - Condition.1', () {
-      var sampleTrueIban = "IT60 X054 2811 1010 0000 0123 456";
-      var testArguman = sampleTrueIban.getBranchCode(Country.italy);
-      expect("11101", testArguman);
+    group("getBranchCode Tests", () {
+      test('getBranchCode Other Country check - Condition.1', () {
+        var sampleTrueIban = "IT60 X054 2811 1010 0000 0123 456";
+        var testArguman = sampleTrueIban.getBranchCode(Country.italy);
+        expect("11101", testArguman);
+      });
+
+      test('getBranchCode Other Country check - Condition.2', () {
+        var sampleTrueIban = "TR33 0006 1005 1978 6457 8413 26";
+        var testArguman = sampleTrueIban.getBranchCode(Country.testcountry);
+        expect("", testArguman);
+      });
     });
 
-    test('getBranchCode Other Country check - Condition.2', () {
-      var sampleTrueIban = "TR33 0006 1005 1978 6457 8413 26";
-      var testArguman = sampleTrueIban.getBranchCode(Country.testcountry);
-      expect("", testArguman);
+    group("getSortCode Tests", () {
+      test('getSortCode check - Condition.1', () {
+        var sampleTrueIban = "TR33 0006 1005 1978 6457 8413 26";
+        var testArguman = sampleTrueIban.getSortCode(Country.testcountry);
+        expect("", testArguman);
+      });
+
+      test('getSortCode check - Condition.2', () {
+        var sampleTrueIban = "GB29 NWBK 6016 1331 9268 19";
+        var testArguman = sampleTrueIban.getSortCode(Country.england);
+        expect("601613", testArguman);
+      });
     });
 
-    test('getSortCode check - Condition.1', () {
-      var sampleTrueIban = "TR33 0006 1005 1978 6457 8413 26";
-      var testArguman = sampleTrueIban.getSortCode(Country.testcountry);
-      expect("", testArguman);
+    group("getNationalCheckDigit Tests", () {
+      test('getNationalCheckDigit check - Condition.1', () {
+        var sampleTrueIban = "TR33 0006 1005 1978 6457 8413 26";
+        var testArguman = sampleTrueIban.getNationalCheckDigit(Country.testcountry);
+        expect("", testArguman);
+      });
+
+      test('getNationalCheckDigit check - Condition.2', () {
+        var sampleTrueIban = "TR33 0006 1005 1978 6457 8413 26";
+        var testArguman = sampleTrueIban.getNationalCheckDigit(Country.turkish);
+        expect("0", testArguman);
+      });
     });
 
-    test('getSortCode check - Condition.2', () {
-      var sampleTrueIban = "GB29 NWBK 6016 1331 9268 19";
-      var testArguman = sampleTrueIban.getSortCode(Country.england);
-      expect("601613", testArguman);
+    group("getBankAccountNumber Tests", () {
+      test('getBankAccountNumber check - Condition.1', () {
+        var sampleTrueIban = "TR33 0006 1005 1978 6457 8413 26";
+        var testArguman = sampleTrueIban.getBankAccountNumber(Country.testcountry);
+        expect("", testArguman);
+      });
+
+      test('getBankAccountNumber check - Condition.2', () {
+        var sampleTrueIban = "TR33 0006 1005 1978 6457 8413 26";
+        var testArguman = sampleTrueIban.getBankAccountNumber(Country.turkish);
+        expect("0519786457841326", testArguman);
+      });
     });
 
-    // TODO: getNationalCheckDigit
-    // TODO: getBankAccountNumber
-    // TODO: prepareIban
+    group("prepareIban Tests", () {
+      test('prepareIban check - Condition.1', () {
+        var sampleTrueIban = "TR33 0006 1005 1978 6457 8413 26";
+        var result = sampleTrueIban.prepareIban();
+        expect("TR330006100519786457841326", result);
+      });
+
+      test('prepareIban check - Condition.2', () {
+        var sampleFalseIban = "TR33 0006 1005%1978 6457 8413_26";
+        var result = sampleFalseIban.prepareIban();
+        expect("TR330006100519786457841326", result);
+      });
+
+      test('prepareIban check - Condition.3', () {
+        var sampleFalseIban = "tr33 0006 1005%1978 6457 8413_26";
+        var result = sampleFalseIban.prepareIban();
+        expect("TR330006100519786457841326", result);
+      });
+    });
   });
 
   group("ValidatorExtensions Test", () {
