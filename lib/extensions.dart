@@ -255,12 +255,14 @@ extension StringExtensions on String {
 extension ValidatorExtensions on String {
   /// Global.. Iban içerisindeki karakterlerin Alfanümerik olup olmadığını kontrol eder.
   bool checkIsAlphaNumericWithRegEx() {
-    return contains(RegExp(r'^([A-Z0-9]*)$'));
+    final alphaNumericRegex = RegExp(r'^([A-Z0-9]*)$', caseSensitive: true);
+    return alphaNumericRegex.hasMatch(this);
   }
 
   /// Global.. Iban içerisindeki karakterlerin Metin olup olmadığını kontrol eder.
   bool checkIsAlphaWithRegEx() {
-    return contains(RegExp(r'^([A-Z]*)$'));
+    final alphaNumericRegex = RegExp(r'^([A-Z]*)$', caseSensitive: true);
+    return alphaNumericRegex.hasMatch(this);
   }
 
   /// Global.. Iban içerisindeki karakterlerin Nümerik olup olmadığını kontrol eder.
