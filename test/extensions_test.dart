@@ -56,4 +56,12 @@ void main() {
       expect("", testArguman);
     });
   });
+
+  group("getSortCode All Variation Test", () {
+    test('getSortCode check - Condition.2', () {
+      var sampleTrueIban = "GB29 NWBK 6016 1331 9268 19";
+      var testArguman = sampleTrueIban.getSortCode(Country.england);
+      expect("601613", testArguman);
+    });
+  });
 }
