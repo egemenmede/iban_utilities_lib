@@ -124,23 +124,28 @@ void main() {
 
     group("checkIbanMod97Algorithm Test", () {
       test('checkIbanMod97Algorithm check - Condition.1', () {
-        expect("Tr 33 0006 1005 1978 6457 8413 26".checkIbanMod97Algorithm(
-            Country.testcountry), false);
+        expect(
+            "Tr 33 0006 1005 1978 6457 8413 26"
+                .checkIbanMod97Algorithm(Country.testcountry),
+            false);
       });
 
       test('checkIbanMod97Algorithm check - Condition.2', () {
-        expect("Tr 33 0006 1005 1978 6457 8413 26".checkIbanMod97Algorithm(
-            Country.turkish), true);
+        expect(
+            "Tr 33 0006 1005 1978 6457 8413 26"
+                .checkIbanMod97Algorithm(Country.turkish),
+            true);
       });
 
       test('checkIbanMod97Algorithm check - Condition.3', () {
-        expect("Tr 32 0006 1005 1978 6457 8413 26".checkIbanMod97Algorithm(
-            Country.turkish), false);
+        expect(
+            "Tr 32 0006 1005 1978 6457 8413 26"
+                .checkIbanMod97Algorithm(Country.turkish),
+            false);
       });
     });
 
-    group("ibanValidate Test", ()
-    {
+    group("ibanValidate Test", () {
       test('ibanValidate check - Condition.1', () {
         expect(
             "Tr 33 0006 1005 1978 6457 8413 26".ibanValidate(Country.turkish),
@@ -154,8 +159,10 @@ void main() {
       });
 
       test('ibanValidate check - Condition.2', () {
-        expect("Tr 33 0006 1005 1978 6457 8413 26".ibanValidate(
-            Country.testcountry), false);
+        expect(
+            "Tr 33 0006 1005 1978 6457 8413 26"
+                .ibanValidate(Country.testcountry),
+            false);
       });
 
       test('ibanValidate check - Condition.3', () {
