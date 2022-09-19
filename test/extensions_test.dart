@@ -52,71 +52,116 @@ void main() {
   });
 
   group("ValidatorExtensions Test", () {
-    test('checkIsAlphaNumericWithRegEx check - Condition.1', () {
-      expect("ABCDE".checkIsAlphaNumericWithRegEx(), true);
+    group("checkIsAlphaNumericWithRegEx Test", () {
+      test('checkIsAlphaNumericWithRegEx check - Condition.1', () {
+        expect("ABCDE".checkIsAlphaNumericWithRegEx(), true);
+      });
+
+      test('checkIsAlphaNumericWithRegEx check - Condition.2', () {
+        expect("12345".checkIsAlphaNumericWithRegEx(), true);
+      });
+
+      test('checkIsAlphaNumericWithRegEx check - Condition.3', () {
+        expect("1BC45".checkIsAlphaNumericWithRegEx(), true);
+      });
+
+      test('checkIsAlphaNumericWithRegEx check - Condition.4', () {
+        expect("1bc45".checkIsAlphaNumericWithRegEx(), false);
+      });
+
+      test('checkIsAlphaNumericWithRegEx check - Condition.5', () {
+        expect("1Bc45".checkIsAlphaNumericWithRegEx(), false);
+      });
     });
 
-    test('checkIsAlphaNumericWithRegEx check - Condition.2', () {
-      expect("12345".checkIsAlphaNumericWithRegEx(), true);
+    group("checkIsAlphaWithRegEx Test", () {
+      test('checkIsAlphaWithRegEx check - Condition.1', () {
+        expect("ABCDE".checkIsAlphaWithRegEx(), true);
+      });
+
+      test('checkIsAlphaWithRegEx check - Condition.2', () {
+        expect("12345".checkIsAlphaWithRegEx(), false);
+      });
+
+      test('checkIsAlphaWithRegEx check - Condition.3', () {
+        expect("12AB5".checkIsAlphaWithRegEx(), false);
+      });
+
+      test('checkIsAlphaWithRegEx check - Condition.4', () {
+        expect("12ab5".checkIsAlphaWithRegEx(), false);
+      });
+
+      test('checkIsAlphaWithRegEx check - Condition.5', () {
+        expect("AB_DE".checkIsAlphaWithRegEx(), false);
+      });
     });
 
-    test('checkIsAlphaNumericWithRegEx check - Condition.3', () {
-      expect("1BC45".checkIsAlphaNumericWithRegEx(), true);
+    group("checkIsNumericWithRegEx Test", () {
+      test('checkIsNumericWithRegEx check - Condition.1', () {
+        expect("12345".checkIsNumericWithRegEx(), true);
+      });
+
+      test('checkIsNumericWithRegEx check - Condition.2', () {
+        expect("12345a".checkIsNumericWithRegEx(), false);
+      });
+
+      test('checkIsNumericWithRegEx check - Condition.3', () {
+        expect("012345".checkIsNumericWithRegEx(), true);
+      });
+
+      test('checkIsNumericWithRegEx check - Condition.4', () {
+        expect("-12345".checkIsNumericWithRegEx(), false);
+      });
+
+      test('checkIsNumericWithRegEx check - Condition.5', () {
+        expect("1.23".checkIsNumericWithRegEx(), false);
+      });
+
+      test('checkIsNumericWithRegEx check - Condition.6', () {
+        expect("1.23f".checkIsNumericWithRegEx(), false);
+      });
     });
 
-    test('checkIsAlphaNumericWithRegEx check - Condition.4', () {
-      expect("1bc45".checkIsAlphaNumericWithRegEx(), false);
+    group("checkIbanMod97Algorithm Test", () {
+      test('checkIbanMod97Algorithm check - Condition.1', () {
+        expect("Tr 33 0006 1005 1978 6457 8413 26".checkIbanMod97Algorithm(
+            Country.testcountry), false);
+      });
+
+      test('checkIbanMod97Algorithm check - Condition.2', () {
+        expect("Tr 33 0006 1005 1978 6457 8413 26".checkIbanMod97Algorithm(
+            Country.turkish), true);
+      });
+
+      test('checkIbanMod97Algorithm check - Condition.3', () {
+        expect("Tr 32 0006 1005 1978 6457 8413 26".checkIbanMod97Algorithm(
+            Country.turkish), false);
+      });
     });
 
-    test('checkIsAlphaNumericWithRegEx check - Condition.5', () {
-      expect("1Bc45".checkIsAlphaNumericWithRegEx(), false);
-    });
+    group("ibanValidate Test", ()
+    {
+      test('ibanValidate check - Condition.1', () {
+        expect(
+            "Tr 33 0006 1005 1978 6457 8413 26".ibanValidate(Country.turkish),
+            true);
+      });
 
-    test('checkIsAlphaWithRegEx check - Condition.1', () {
-      expect("ABCDE".checkIsAlphaWithRegEx(), true);
-    });
+      test('ibanValidate check - Condition.1', () {
+        expect(
+            "Tr 32 0006 1005 1978 6457 8413 26".ibanValidate(Country.turkish),
+            false);
+      });
 
-    test('checkIsAlphaWithRegEx check - Condition.2', () {
-      expect("12345".checkIsAlphaWithRegEx(), false);
-    });
+      test('ibanValidate check - Condition.2', () {
+        expect("Tr 33 0006 1005 1978 6457 8413 26".ibanValidate(
+            Country.testcountry), false);
+      });
 
-    test('checkIsAlphaWithRegEx check - Condition.3', () {
-      expect("12AB5".checkIsAlphaWithRegEx(), false);
+      test('ibanValidate check - Condition.3', () {
+        expect("Tr 33 0006 1005 1978 6457 8413 2".ibanValidate(Country.turkish),
+            false);
+      });
     });
-
-    test('checkIsAlphaWithRegEx check - Condition.4', () {
-      expect("12ab5".checkIsAlphaWithRegEx(), false);
-    });
-
-    test('checkIsAlphaWithRegEx check - Condition.5', () {
-      expect("AB_DE".checkIsAlphaWithRegEx(), false);
-    });
-
-    test('checkIsNumericWithRegEx check - Condition.1', () {
-      expect("12345".checkIsNumericWithRegEx(), true);
-    });
-
-    test('checkIsNumericWithRegEx check - Condition.2', () {
-      expect("12345a".checkIsNumericWithRegEx(), false);
-    });
-
-    test('checkIsNumericWithRegEx check - Condition.3', () {
-      expect("012345".checkIsNumericWithRegEx(), true);
-    });
-
-    test('checkIsNumericWithRegEx check - Condition.4', () {
-      expect("-12345".checkIsNumericWithRegEx(), false);
-    });
-
-    test('checkIsNumericWithRegEx check - Condition.5', () {
-      expect("1.23".checkIsNumericWithRegEx(), false);
-    });
-
-    test('checkIsNumericWithRegEx check - Condition.6', () {
-      expect("1.23f".checkIsNumericWithRegEx(), false);
-    });
-
-    // TODO: checkIbanMod97Algorithm
-    // TODO: ibanValidate
   });
 }
