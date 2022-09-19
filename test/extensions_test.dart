@@ -53,7 +53,26 @@ void main() {
 
   group("ValidatorExtensions Test", () {
     // TODO: checkIsAlphaNumericWithRegEx
-    // TODO: checkIsAlphaWithRegEx
+
+    test('checkIsAlphaWithRegEx check - Condition.1', () {
+      expect("ABCDE".checkIsAlphaWithRegEx(), true);
+    });
+
+    test('checkIsAlphaWithRegEx check - Condition.2', () {
+      expect("12345".checkIsAlphaWithRegEx(), false);
+    });
+
+    test('checkIsAlphaWithRegEx check - Condition.3', () {
+      expect("12AB5".checkIsAlphaWithRegEx(), false);
+    });
+
+    test('checkIsAlphaWithRegEx check - Condition.4', () {
+      expect("12ab5".checkIsAlphaWithRegEx(), false);
+    });
+
+    test('checkIsAlphaWithRegEx check - Condition.5', () {
+      expect("AB_DE".checkIsAlphaWithRegEx(), false);
+    });
 
     test('checkIsNumericWithRegEx check - Condition.1', () {
       expect("12345".checkIsNumericWithRegEx(), true);
@@ -78,7 +97,7 @@ void main() {
     test('checkIsNumericWithRegEx check - Condition.6', () {
       expect("1.23f".checkIsNumericWithRegEx(), false);
     });
-    
+
     // TODO: checkIbanMod97Algorithm
     // TODO: ibanValidate
   });
