@@ -3,7 +3,7 @@ import 'package:iban_utilities/enums_countries.dart';
 import 'package:iban_utilities/extensions.dart';
 
 void main() {
-  group("Extensions Test", () {
+  group("StringExtensions Test", () {
     test('getCountryCode Other Country check', () {
       var sampleTrueIban = "TR33 0006 1005 1978 6457 8413 26";
       var testArguman = sampleTrueIban.getCountryCode(Country.testcountry);
@@ -21,6 +21,32 @@ void main() {
       var testArguman = sampleTrueIban.getBankCode(Country.testcountry);
       expect("", testArguman);
     });
+
+    // TODO: BranchCode
+
+    test('getSortCode check - Condition.1', () {
+      var sampleTrueIban = "TR33 0006 1005 1978 6457 8413 26";
+      var testArguman = sampleTrueIban.getSortCode(Country.testcountry);
+      expect("", testArguman);
+    });
+
+    test('getSortCode check - Condition.2', () {
+      var sampleTrueIban = "GB29 NWBK 6016 1331 9268 19";
+      var testArguman = sampleTrueIban.getSortCode(Country.england);
+      expect("601613", testArguman);
+    });
+
+    // TODO: getNationalCheckDigit
+    // TODO: getBankAccountNumber
+    // TODO: prepareIban
+  });
+
+  group("ValidatorExtensions Test", () {
+    // TODO: checkIsAlphaNumericWithRegEx
+    // TODO: checkIsAlphaWithRegEx
+    // TODO: checkIsNumericWithRegEx
+    // TODO: checkIbanMod97Algorithm
+    // TODO: ibanValidate
   });
 
   group("checkIsNumericWithRegEx All Variation Test", () {
@@ -46,22 +72,6 @@ void main() {
 
     test('checkIsNumericWithRegEx check - Condition.6', () {
       expect("1.23f".checkIsNumericWithRegEx(), false);
-    });
-  });
-
-  group("getSortCode All Variation Test", () {
-    test('getSortCode check - Condition.1', () {
-      var sampleTrueIban = "TR33 0006 1005 1978 6457 8413 26";
-      var testArguman = sampleTrueIban.getSortCode(Country.testcountry);
-      expect("", testArguman);
-    });
-  });
-
-  group("getSortCode All Variation Test", () {
-    test('getSortCode check - Condition.2', () {
-      var sampleTrueIban = "GB29 NWBK 6016 1331 9268 19";
-      var testArguman = sampleTrueIban.getSortCode(Country.england);
-      expect("601613", testArguman);
     });
   });
 }
