@@ -43,7 +43,9 @@ class Utils {
 
     var ibanInt = BigInt.parse(iban);
     var remainder = ibanInt.remainder(BigInt.from(97)).toInt();
-    return (98-remainder).toString();
+    var temp = "";
+    ((98-remainder).toString().length == 1) ? temp = "0${98-remainder}" : temp = (98-remainder).toString();
+    return temp;
   }
 
   /// Bir Iban numarasını oluşturarak geri döndürür.
@@ -53,9 +55,13 @@ class Utils {
       case Country.turkish:
         {
           String lastPart = Utils.generateRandomNumeric(16);
+          print("----------------------------------");
+          print("lastPart(16): ${lastPart.length}");
           String template =  _getIbanChecksum("TR00${staticSampleBankCode}0$lastPart");
+          print("template(2): $template");
           var newIban = "TR$template${staticSampleBankCode}0$lastPart";
-          // print("newIban: $newIban");
+          print("newIban: $newIban");
+          print("----------------------------------");
           return newIban;
         }
 
