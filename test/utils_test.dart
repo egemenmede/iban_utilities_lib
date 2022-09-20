@@ -19,7 +19,7 @@ void main() {
       expect(digit.toString().length, 2);
     });
 
-    test('generateCheckDigits function - isNumeric check', () {
+    test('checkIsNumericWithRegEx function - isNumeric check', () {
       var digit = Utils.generateCheckDigits(10,99);
       expect(digit.toString().checkIsNumericWithRegEx(), true);
     });
