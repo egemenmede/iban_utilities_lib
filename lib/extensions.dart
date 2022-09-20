@@ -1,5 +1,3 @@
-
-
 import 'package:iban_utilities_lib/enums_countries.dart';
 
 extension StringExtensions on String {
@@ -248,9 +246,17 @@ extension StringExtensions on String {
     }
   }
 
-  /// Global.. Iban'ı kontrol için hazır. Büyük harfe çevirir ve gereksiz karakterleri kaldırır.
+  /// Global.. Iban'ı kontrol için hazır.
+  /// Tüm boşlukları ve geçersiz karakterleri kaldırır ve iban'ı büyük harfle geri döndürür.
   String prepareIban() {
     return replaceAll(RegExp(r'[^a-zA-Z0-9]'), '').toUpperCase();
+  }
+
+  /// Iban'ı belirli boşluklarala yazarak baskı formatında görüntüler.
+  String toPrintFormat([String separator = ' ']) {
+    var every4Chars = RegExp(r'(.{4})(?!$)');
+    return prepareIban()
+        .replaceAllMapped(every4Chars, (match) => '${match.group(0)}$separator');
   }
 }
 
