@@ -20,6 +20,9 @@ doc/api/
 *.js.deps
 *.js.map
 
+
+.idea/
+
 # SonarLint plugin
 .idea/sonarlint/
 
