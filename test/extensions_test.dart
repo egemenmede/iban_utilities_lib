@@ -103,6 +103,20 @@ void main() {
         expect("TR330006100519786457841326", result);
       });
     });
+
+    group("toPrintFormat Tests", () {
+      test('toPrintFormat check - Condition.1', () {
+        var sampleTrueIban = "TR330006100519786457841326";
+        var result = sampleTrueIban.toPrintFormat();
+        expect("TR33 0006 1005 1978 6457 8413 26", result);
+      });
+
+      test('toPrintFormat check - Condition.2', () {
+        var sampleTrueIban = "tr330006100519786457841326";
+        var result = sampleTrueIban.toPrintFormat();
+        expect("TR33 0006 1005 1978 6457 8413 26", result);
+      });
+    });
   });
 
   group("ValidatorExtensions Test", () {
