@@ -31,13 +31,13 @@
             <td class="headerValue">lcov.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">99</td>
-            <td class="headerCovTableEntry">99</td>
+            <td class="headerCovTableEntry">103</td>
+            <td class="headerCovTableEntry">103</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2022-09-19 16:44:21</td>
+            <td class="headerValue">2022-09-20 11:21:07</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -60,7 +60,7 @@
       <td>
 <pre class="sourceHeading">          Line data    Source code</pre>
 <pre class="source">
-<a name="1"><span class="lineNum">       1 </span>            : import 'package:iban_utilities/enums_countries.dart';</a>
+<a name="1"><span class="lineNum">       1 </span>            : import 'package:iban_utilities_lib/enums_countries.dart';</a>
 <a name="2"><span class="lineNum">       2 </span>            : </a>
 <a name="3"><span class="lineNum">       3 </span>            : extension StringExtensions on String {</a>
 <a name="4"><span class="lineNum">       4 </span>            :   /// Ülkeye göre 'Ülke Kodu' bilgisini geri döndürür.</a>
@@ -308,82 +308,90 @@
 <a name="246"><span class="lineNum">     246 </span>            :     }</a>
 <a name="247"><span class="lineNum">     247 </span>            :   }</a>
 <a name="248"><span class="lineNum">     248 </span>            : </a>
-<a name="249"><span class="lineNum">     249 </span>            :   /// Global.. Iban'ı kontrol için hazır. Büyük harfe çevirir ve gereksiz karakterleri kaldırır.</a>
-<a name="250"><span class="lineNum">     250 </span><span class="lineCov">          2 :   String prepareIban() {</span></a>
-<a name="251"><span class="lineNum">     251 </span><span class="lineCov">          6 :     return replaceAll(RegExp(r'[^a-zA-Z0-9]'), '').toUpperCase();</span></a>
-<a name="252"><span class="lineNum">     252 </span>            :   }</a>
-<a name="253"><span class="lineNum">     253 </span>            : }</a>
+<a name="249"><span class="lineNum">     249 </span>            :   /// Global.. Iban'ı kontrol için hazır.</a>
+<a name="250"><span class="lineNum">     250 </span>            :   /// Tüm boşlukları ve geçersiz karakterleri kaldırır ve iban'ı büyük harfle geri döndürür.</a>
+<a name="251"><span class="lineNum">     251 </span><span class="lineCov">          2 :   String prepareIban() {</span></a>
+<a name="252"><span class="lineNum">     252 </span><span class="lineCov">          6 :     return replaceAll(RegExp(r'[^a-zA-Z0-9]'), '').toUpperCase();</span></a>
+<a name="253"><span class="lineNum">     253 </span>            :   }</a>
 <a name="254"><span class="lineNum">     254 </span>            : </a>
-<a name="255"><span class="lineNum">     255 </span>            : extension ValidatorExtensions on String {</a>
-<a name="256"><span class="lineNum">     256 </span>            :   /// Global.. Iban içerisindeki karakterlerin Alfanümerik olup olmadığını kontrol eder.</a>
-<a name="257"><span class="lineNum">     257 </span><span class="lineCov">          2 :   bool checkIsAlphaNumericWithRegEx() {</span></a>
-<a name="258"><span class="lineNum">     258 </span><span class="lineCov">          2 :     final alphaNumericRegex = RegExp(r'^([A-Z0-9]*)$', caseSensitive: true);</span></a>
-<a name="259"><span class="lineNum">     259 </span><span class="lineCov">          2 :     return alphaNumericRegex.hasMatch(this);</span></a>
+<a name="255"><span class="lineNum">     255 </span>            :   /// Iban'ı belirli boşluklarala yazarak baskı formatında görüntüler.</a>
+<a name="256"><span class="lineNum">     256 </span><span class="lineCov">          1 :   String toPrintFormat([String separator = ' ']) {</span></a>
+<a name="257"><span class="lineNum">     257 </span><span class="lineCov">          1 :     var every4Chars = RegExp(r'(.{4})(?!$)');</span></a>
+<a name="258"><span class="lineNum">     258 </span><span class="lineCov">          1 :     return prepareIban()</span></a>
+<a name="259"><span class="lineNum">     259 </span><span class="lineCov">          4 :         .replaceAllMapped(every4Chars, (match) =&gt; '${match.group(0)}$separator');</span></a>
 <a name="260"><span class="lineNum">     260 </span>            :   }</a>
-<a name="261"><span class="lineNum">     261 </span>            : </a>
-<a name="262"><span class="lineNum">     262 </span>            :   /// Global.. Iban içerisindeki karakterlerin Metin olup olmadığını kontrol eder.</a>
-<a name="263"><span class="lineNum">     263 </span><span class="lineCov">          3 :   bool checkIsAlphaWithRegEx() {</span></a>
-<a name="264"><span class="lineNum">     264 </span><span class="lineCov">          3 :     final alphaNumericRegex = RegExp(r'^([A-Z]*)$', caseSensitive: true);</span></a>
-<a name="265"><span class="lineNum">     265 </span><span class="lineCov">          3 :     return alphaNumericRegex.hasMatch(this);</span></a>
-<a name="266"><span class="lineNum">     266 </span>            :   }</a>
-<a name="267"><span class="lineNum">     267 </span>            : </a>
-<a name="268"><span class="lineNum">     268 </span>            :   /// Global.. Iban içerisindeki karakterlerin Nümerik olup olmadığını kontrol eder.</a>
-<a name="269"><span class="lineNum">     269 </span><span class="lineCov">          2 :   bool checkIsNumericWithRegEx() {</span></a>
-<a name="270"><span class="lineNum">     270 </span><span class="lineCov">          2 :     final numericRegex = RegExp(r'^([0-9]*)$');</span></a>
-<a name="271"><span class="lineNum">     271 </span><span class="lineCov">          2 :     return numericRegex.hasMatch(this);</span></a>
-<a name="272"><span class="lineNum">     272 </span>            :   }</a>
-<a name="273"><span class="lineNum">     273 </span>            : </a>
-<a name="274"><span class="lineNum">     274 </span>            :   /// Ülkeye göre Iban'a ait Mod97 kontrolünü yaparak, geçerli bir Iban olup olmadığını bildirir.</a>
-<a name="275"><span class="lineNum">     275 </span><span class="lineCov">          2 :   bool checkIbanMod97Algorithm(Country country){</span></a>
-<a name="276"><span class="lineNum">     276 </span><span class="lineCov">          2 :     List&lt;String&gt; strArr =  [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot;, &quot;G&quot;, &quot;H&quot;, &quot;I&quot;, &quot;J&quot;, &quot;K&quot;, &quot;L&quot;, &quot;M&quot;, &quot;N&quot;, &quot;O&quot;, &quot;P&quot;, &quot;Q&quot;, &quot;R&quot;, &quot;S&quot;, &quot;T&quot;, &quot;U&quot;, &quot;V&quot;, &quot;W&quot;, &quot;X&quot;, &quot;Y&quot;, &quot;Z&quot;];</span></a>
-<a name="277"><span class="lineNum">     277 </span><span class="lineCov">          2 :     List&lt;String&gt; intArr =  [&quot;10&quot;, &quot;11&quot;, &quot;12&quot;, &quot;13&quot;, &quot;14&quot;, &quot;15&quot;, &quot;16&quot;, &quot;17&quot;, &quot;18&quot;, &quot;19&quot;, &quot;20&quot;, &quot;21&quot;, &quot;22&quot;, &quot;23&quot;, &quot;24&quot;, &quot;25&quot;, &quot;26&quot;, &quot;27&quot;, &quot;28&quot;, &quot;29&quot;, &quot;30&quot;, &quot;31&quot;, &quot;32&quot;, &quot;33&quot;, &quot;34&quot;, &quot;35&quot;];</span></a>
-<a name="278"><span class="lineNum">     278 </span>            : </a>
-<a name="279"><span class="lineNum">     279 </span>            :     switch (country) {</a>
-<a name="280"><span class="lineNum">     280 </span><span class="lineCov">          2 :       case Country.turkish:</span></a>
-<a name="281"><span class="lineNum">     281 </span>            :         {</a>
-<a name="282"><span class="lineNum">     282 </span><span class="lineCov">          2 :           var iban = prepareIban();</span></a>
-<a name="283"><span class="lineNum">     283 </span><span class="lineCov">          6 :           iban = iban.substring(4) + iban.substring(0, 4);</span></a>
-<a name="284"><span class="lineNum">     284 </span>            : </a>
-<a name="285"><span class="lineNum">     285 </span><span class="lineCov">          6 :           for (int i = 0; i &lt; strArr.length; i++){</span></a>
-<a name="286"><span class="lineNum">     286 </span><span class="lineCov">          6 :             iban = iban.replaceAll(strArr[i], intArr[i]);</span></a>
-<a name="287"><span class="lineNum">     287 </span>            :           }</a>
-<a name="288"><span class="lineNum">     288 </span>            : </a>
-<a name="289"><span class="lineNum">     289 </span><span class="lineCov">          2 :           var ibanInt = BigInt.parse(iban);</span></a>
-<a name="290"><span class="lineNum">     290 </span><span class="lineCov">          6 :           var remainder = ibanInt.remainder(BigInt.from(97)).toInt();</span></a>
-<a name="291"><span class="lineNum">     291 </span><span class="lineCov">          2 :           return (remainder == 1) ? true : false;</span></a>
-<a name="292"><span class="lineNum">     292 </span>            :         }</a>
-<a name="293"><span class="lineNum">     293 </span>            : </a>
-<a name="294"><span class="lineNum">     294 </span>            :       default:</a>
-<a name="295"><span class="lineNum">     295 </span>            :         {</a>
-<a name="296"><span class="lineNum">     296 </span>            :           return false;</a>
-<a name="297"><span class="lineNum">     297 </span>            :         }</a>
-<a name="298"><span class="lineNum">     298 </span>            :     }</a>
-<a name="299"><span class="lineNum">     299 </span>            :   }</a>
-<a name="300"><span class="lineNum">     300 </span>            : </a>
-<a name="301"><span class="lineNum">     301 </span>            :   /// Ülkeye göre Iban'nın geçerli olup olmadığını kontrol eder.</a>
-<a name="302"><span class="lineNum">     302 </span><span class="lineCov">          2 :   bool ibanValidate(Country country) {</span></a>
-<a name="303"><span class="lineNum">     303 </span><span class="lineCov">          2 :     var iban = prepareIban();</span></a>
-<a name="304"><span class="lineNum">     304 </span>            : </a>
-<a name="305"><span class="lineNum">     305 </span>            :     switch (country) {</a>
-<a name="306"><span class="lineNum">     306 </span><span class="lineCov">          2 :       case Country.turkish:</span></a>
-<a name="307"><span class="lineNum">     307 </span>            :         {</a>
-<a name="308"><span class="lineNum">     308 </span>            :           return (</a>
-<a name="309"><span class="lineNum">     309 </span><span class="lineCov">          2 :               iban.isEmpty</span></a>
-<a name="310"><span class="lineNum">     310 </span><span class="lineCov">          4 :               || iban.length != 26</span></a>
-<a name="311"><span class="lineNum">     311 </span><span class="lineCov">          2 :               || !iban.checkIsAlphaNumericWithRegEx()</span></a>
-<a name="312"><span class="lineNum">     312 </span><span class="lineCov">          4 :               || !iban.getCountryCode(country).checkIsAlphaWithRegEx()</span></a>
-<a name="313"><span class="lineNum">     313 </span><span class="lineCov">          4 :               || iban.getCountryCode(country) != &quot;TR&quot;</span></a>
-<a name="314"><span class="lineNum">     314 </span><span class="lineCov">          2 :               || !iban.checkIbanMod97Algorithm(country)</span></a>
-<a name="315"><span class="lineNum">     315 </span>            :           ) ? false : true;</a>
-<a name="316"><span class="lineNum">     316 </span>            :         }</a>
-<a name="317"><span class="lineNum">     317 </span>            : </a>
-<a name="318"><span class="lineNum">     318 </span>            :       default:</a>
-<a name="319"><span class="lineNum">     319 </span>            :         {</a>
-<a name="320"><span class="lineNum">     320 </span>            :           return false;</a>
-<a name="321"><span class="lineNum">     321 </span>            :         }</a>
-<a name="322"><span class="lineNum">     322 </span>            :     }</a>
-<a name="323"><span class="lineNum">     323 </span>            :   }</a>
-<a name="324"><span class="lineNum">     324 </span>            : }</a>
+<a name="261"><span class="lineNum">     261 </span>            : }</a>
+<a name="262"><span class="lineNum">     262 </span>            : </a>
+<a name="263"><span class="lineNum">     263 </span>            : extension ValidatorExtensions on String {</a>
+<a name="264"><span class="lineNum">     264 </span>            :   /// Global.. Iban içerisindeki karakterlerin Alfanümerik olup olmadığını kontrol eder.</a>
+<a name="265"><span class="lineNum">     265 </span><span class="lineCov">          2 :   bool checkIsAlphaNumericWithRegEx() {</span></a>
+<a name="266"><span class="lineNum">     266 </span><span class="lineCov">          2 :     final alphaNumericRegex = RegExp(r'^([A-Z0-9]*)$', caseSensitive: true);</span></a>
+<a name="267"><span class="lineNum">     267 </span><span class="lineCov">          2 :     return alphaNumericRegex.hasMatch(this);</span></a>
+<a name="268"><span class="lineNum">     268 </span>            :   }</a>
+<a name="269"><span class="lineNum">     269 </span>            : </a>
+<a name="270"><span class="lineNum">     270 </span>            :   /// Global.. Iban içerisindeki karakterlerin Metin olup olmadığını kontrol eder.</a>
+<a name="271"><span class="lineNum">     271 </span><span class="lineCov">          3 :   bool checkIsAlphaWithRegEx() {</span></a>
+<a name="272"><span class="lineNum">     272 </span><span class="lineCov">          3 :     final alphaNumericRegex = RegExp(r'^([A-Z]*)$', caseSensitive: true);</span></a>
+<a name="273"><span class="lineNum">     273 </span><span class="lineCov">          3 :     return alphaNumericRegex.hasMatch(this);</span></a>
+<a name="274"><span class="lineNum">     274 </span>            :   }</a>
+<a name="275"><span class="lineNum">     275 </span>            : </a>
+<a name="276"><span class="lineNum">     276 </span>            :   /// Global.. Iban içerisindeki karakterlerin Nümerik olup olmadığını kontrol eder.</a>
+<a name="277"><span class="lineNum">     277 </span><span class="lineCov">          2 :   bool checkIsNumericWithRegEx() {</span></a>
+<a name="278"><span class="lineNum">     278 </span><span class="lineCov">          2 :     final numericRegex = RegExp(r'^([0-9]*)$');</span></a>
+<a name="279"><span class="lineNum">     279 </span><span class="lineCov">          2 :     return numericRegex.hasMatch(this);</span></a>
+<a name="280"><span class="lineNum">     280 </span>            :   }</a>
+<a name="281"><span class="lineNum">     281 </span>            : </a>
+<a name="282"><span class="lineNum">     282 </span>            :   /// Ülkeye göre Iban'a ait Mod97 kontrolünü yaparak, geçerli bir Iban olup olmadığını bildirir.</a>
+<a name="283"><span class="lineNum">     283 </span><span class="lineCov">          2 :   bool checkIbanMod97Algorithm(Country country){</span></a>
+<a name="284"><span class="lineNum">     284 </span><span class="lineCov">          2 :     List&lt;String&gt; strArr =  [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot;, &quot;G&quot;, &quot;H&quot;, &quot;I&quot;, &quot;J&quot;, &quot;K&quot;, &quot;L&quot;, &quot;M&quot;, &quot;N&quot;, &quot;O&quot;, &quot;P&quot;, &quot;Q&quot;, &quot;R&quot;, &quot;S&quot;, &quot;T&quot;, &quot;U&quot;, &quot;V&quot;, &quot;W&quot;, &quot;X&quot;, &quot;Y&quot;, &quot;Z&quot;];</span></a>
+<a name="285"><span class="lineNum">     285 </span><span class="lineCov">          2 :     List&lt;String&gt; intArr =  [&quot;10&quot;, &quot;11&quot;, &quot;12&quot;, &quot;13&quot;, &quot;14&quot;, &quot;15&quot;, &quot;16&quot;, &quot;17&quot;, &quot;18&quot;, &quot;19&quot;, &quot;20&quot;, &quot;21&quot;, &quot;22&quot;, &quot;23&quot;, &quot;24&quot;, &quot;25&quot;, &quot;26&quot;, &quot;27&quot;, &quot;28&quot;, &quot;29&quot;, &quot;30&quot;, &quot;31&quot;, &quot;32&quot;, &quot;33&quot;, &quot;34&quot;, &quot;35&quot;];</span></a>
+<a name="286"><span class="lineNum">     286 </span>            : </a>
+<a name="287"><span class="lineNum">     287 </span>            :     switch (country) {</a>
+<a name="288"><span class="lineNum">     288 </span><span class="lineCov">          2 :       case Country.turkish:</span></a>
+<a name="289"><span class="lineNum">     289 </span>            :         {</a>
+<a name="290"><span class="lineNum">     290 </span><span class="lineCov">          2 :           var iban = prepareIban();</span></a>
+<a name="291"><span class="lineNum">     291 </span><span class="lineCov">          6 :           iban = iban.substring(4) + iban.substring(0, 4);</span></a>
+<a name="292"><span class="lineNum">     292 </span>            : </a>
+<a name="293"><span class="lineNum">     293 </span><span class="lineCov">          6 :           for (int i = 0; i &lt; strArr.length; i++){</span></a>
+<a name="294"><span class="lineNum">     294 </span><span class="lineCov">          6 :             iban = iban.replaceAll(strArr[i], intArr[i]);</span></a>
+<a name="295"><span class="lineNum">     295 </span>            :           }</a>
+<a name="296"><span class="lineNum">     296 </span>            : </a>
+<a name="297"><span class="lineNum">     297 </span><span class="lineCov">          2 :           var ibanInt = BigInt.parse(iban);</span></a>
+<a name="298"><span class="lineNum">     298 </span><span class="lineCov">          6 :           var remainder = ibanInt.remainder(BigInt.from(97)).toInt();</span></a>
+<a name="299"><span class="lineNum">     299 </span><span class="lineCov">          2 :           return (remainder == 1) ? true : false;</span></a>
+<a name="300"><span class="lineNum">     300 </span>            :         }</a>
+<a name="301"><span class="lineNum">     301 </span>            : </a>
+<a name="302"><span class="lineNum">     302 </span>            :       default:</a>
+<a name="303"><span class="lineNum">     303 </span>            :         {</a>
+<a name="304"><span class="lineNum">     304 </span>            :           return false;</a>
+<a name="305"><span class="lineNum">     305 </span>            :         }</a>
+<a name="306"><span class="lineNum">     306 </span>            :     }</a>
+<a name="307"><span class="lineNum">     307 </span>            :   }</a>
+<a name="308"><span class="lineNum">     308 </span>            : </a>
+<a name="309"><span class="lineNum">     309 </span>            :   /// Ülkeye göre Iban'nın geçerli olup olmadığını kontrol eder.</a>
+<a name="310"><span class="lineNum">     310 </span><span class="lineCov">          2 :   bool ibanValidate(Country country) {</span></a>
+<a name="311"><span class="lineNum">     311 </span><span class="lineCov">          2 :     var iban = prepareIban();</span></a>
+<a name="312"><span class="lineNum">     312 </span>            : </a>
+<a name="313"><span class="lineNum">     313 </span>            :     switch (country) {</a>
+<a name="314"><span class="lineNum">     314 </span><span class="lineCov">          2 :       case Country.turkish:</span></a>
+<a name="315"><span class="lineNum">     315 </span>            :         {</a>
+<a name="316"><span class="lineNum">     316 </span>            :           return (</a>
+<a name="317"><span class="lineNum">     317 </span><span class="lineCov">          2 :               iban.isEmpty</span></a>
+<a name="318"><span class="lineNum">     318 </span><span class="lineCov">          4 :               || iban.length != 26</span></a>
+<a name="319"><span class="lineNum">     319 </span><span class="lineCov">          2 :               || !iban.checkIsAlphaNumericWithRegEx()</span></a>
+<a name="320"><span class="lineNum">     320 </span><span class="lineCov">          4 :               || !iban.getCountryCode(country).checkIsAlphaWithRegEx()</span></a>
+<a name="321"><span class="lineNum">     321 </span><span class="lineCov">          4 :               || iban.getCountryCode(country) != &quot;TR&quot;</span></a>
+<a name="322"><span class="lineNum">     322 </span><span class="lineCov">          2 :               || !iban.checkIbanMod97Algorithm(country)</span></a>
+<a name="323"><span class="lineNum">     323 </span>            :           ) ? false : true;</a>
+<a name="324"><span class="lineNum">     324 </span>            :         }</a>
+<a name="325"><span class="lineNum">     325 </span>            : </a>
+<a name="326"><span class="lineNum">     326 </span>            :       default:</a>
+<a name="327"><span class="lineNum">     327 </span>            :         {</a>
+<a name="328"><span class="lineNum">     328 </span>            :           return false;</a>
+<a name="329"><span class="lineNum">     329 </span>            :         }</a>
+<a name="330"><span class="lineNum">     330 </span>            :     }</a>
+<a name="331"><span class="lineNum">     331 </span>            :   }</a>
+<a name="332"><span class="lineNum">     332 </span>            : }</a>
 </pre>
       </td>
     </tr>
