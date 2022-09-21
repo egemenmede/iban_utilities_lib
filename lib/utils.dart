@@ -31,6 +31,10 @@ class Utils {
     return randomString;
   }
 
+  static String getIbanChecksumTestHelper(String str){
+    return _getIbanChecksum(str);
+  }
+
   /// Verilen bilgilere göre Iban Kontrol Numarasını geri döndürür.
   static String _getIbanChecksum(String str) {
     List<String> strArr = [
@@ -191,13 +195,13 @@ class Utils {
       case Country.turkish:
         {
           String lastPart = Utils.generateRandomNumeric(16);
-          print("----------------------------------");
-          print("lastPart(16): ${lastPart.length}");
+          //print("----------------------------------");
+          //print("lastPart(16): ${lastPart.length}");
           String template = _getIbanChecksum("TR00${bankCode}0$lastPart");
-          print("template(2): $template");
+          //print("template(2): $template");
           var newIban = "TR$template${bankCode}0$lastPart";
-          print("newIban: $newIban");
-          print("----------------------------------");
+          //print("newIban: $newIban");
+          //print("----------------------------------");
           return newIban;
         }
 
