@@ -1,7 +1,7 @@
 name: iban_utilities_lib
-description: A new Flutter project.
-version: 0.0.1
-homepage:
+description: IBAN Utilities Flutter Package Project. With this library, you can create an IBAN number, check its validity, see the details of the IBAN content, and view it in electronic or writing.
+version: 1.0.0
+homepage: https://github.com/egemenmede/iban_utilities_lib.git
 
 environment:
   sdk: ">=2.17.6 <3.0.0"
@@ -14,7 +14,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^2.0.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
