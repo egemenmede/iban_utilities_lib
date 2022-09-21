@@ -30,9 +30,9 @@ class Utils {
 
     return randomString;
   }
-  
+
   /// Private _getIbanChecksum metodu için TestHelper metodu.
-  static String getIbanChecksumTestHelper(String str){
+  static String getIbanChecksumTestHelper(String str) {
     return _getIbanChecksum(str);
   }
 
@@ -132,12 +132,14 @@ class Utils {
 
   /// Ülkeye ve banka koduna göre bir Bank nesnesi döndürür.
   static Bank getBankObject(Country country, String activeBankCode) {
-    List<Bank> bankObjectList = getBankObjectList(country).where((element) => element.bankCode == activeBankCode).toList();
+    List<Bank> bankObjectList = getBankObjectList(country)
+        .where((element) => element.bankCode == activeBankCode)
+        .toList();
     Bank bankObj;
     if (bankObjectList.isNotEmpty) {
       bankObj = bankObjectList[0];
-    }else{
-      bankObj = Bank("","","");
+    } else {
+      bankObj = Bank("", "", "");
     }
 
     return bankObj;

@@ -28,7 +28,8 @@ void main() {
     });
 
     test('Turkish bankAccountNumber check', () {
-      expect(ibanUtilities.bankAccountNumber(Country.turkish), "0519786457841326");
+      expect(
+          ibanUtilities.bankAccountNumber(Country.turkish), "0519786457841326");
     });
   });
 
@@ -249,5 +250,4 @@ void main() {
     });
   });
    */
-
 }

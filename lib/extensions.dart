@@ -255,8 +255,8 @@ extension StringExtensions on String {
   /// Iban'ı belirli boşluklarala yazarak baskı formatında görüntüler.
   String toPrintFormat([String separator = ' ']) {
     var every4Chars = RegExp(r'(.{4})(?!$)');
-    return prepareIban()
-        .replaceAllMapped(every4Chars, (match) => '${match.group(0)}$separator');
+    return prepareIban().replaceAllMapped(
+        every4Chars, (match) => '${match.group(0)}$separator');
   }
 }
 
@@ -280,9 +280,63 @@ extension ValidatorExtensions on String {
   }
 
   /// Ülkeye göre Iban'a ait Mod97 kontrolünü yaparak, geçerli bir Iban olup olmadığını bildirir.
-  bool checkIbanMod97Algorithm(Country country){
-    List<String> strArr =  ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-    List<String> intArr =  ["10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35"];
+  bool checkIbanMod97Algorithm(Country country) {
+    List<String> strArr = [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J",
+      "K",
+      "L",
+      "M",
+      "N",
+      "O",
+      "P",
+      "Q",
+      "R",
+      "S",
+      "T",
+      "U",
+      "V",
+      "W",
+      "X",
+      "Y",
+      "Z"
+    ];
+    List<String> intArr = [
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21",
+      "22",
+      "23",
+      "24",
+      "25",
+      "26",
+      "27",
+      "28",
+      "29",
+      "30",
+      "31",
+      "32",
+      "33",
+      "34",
+      "35"
+    ];
 
     switch (country) {
       case Country.turkish:
@@ -290,7 +344,7 @@ extension ValidatorExtensions on String {
           var iban = prepareIban();
           iban = iban.substring(4) + iban.substring(0, 4);
 
-          for (int i = 0; i < strArr.length; i++){
+          for (int i = 0; i < strArr.length; i++) {
             iban = iban.replaceAll(strArr[i], intArr[i]);
           }
 
@@ -313,14 +367,14 @@ extension ValidatorExtensions on String {
     switch (country) {
       case Country.turkish:
         {
-          return (
-              iban.isEmpty
-              || iban.length != 26
-              || !iban.checkIsAlphaNumericWithRegEx()
-              || !iban.getCountryCode(country).checkIsAlphaWithRegEx()
-              || iban.getCountryCode(country) != "TR"
-              || !iban.checkIbanMod97Algorithm(country)
-          ) ? false : true;
+          return (iban.isEmpty ||
+                  iban.length != 26 ||
+                  !iban.checkIsAlphaNumericWithRegEx() ||
+                  !iban.getCountryCode(country).checkIsAlphaWithRegEx() ||
+                  iban.getCountryCode(country) != "TR" ||
+                  !iban.checkIbanMod97Algorithm(country))
+              ? false
+              : true;
         }
 
       default:

@@ -124,7 +124,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               bankName = "";
                               bankImage = "";
                             }
-                          }else{
+                          } else {
                             bankName = "";
                             bankImage = "";
                           }
@@ -284,7 +284,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               //nationalCheckDigit = "";
                               //bankAccountNumber = "";
                             }
-                          }else{
+                          } else {
                             bankName = "";
                             bankImage = "";
                           }

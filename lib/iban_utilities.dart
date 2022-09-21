@@ -4,12 +4,10 @@ import 'package:iban_utilities_lib/enums_countries.dart';
 import 'package:iban_utilities_lib/extensions.dart';
 import 'package:iban_utilities_lib/utils.dart';
 
-
-
 class IbanUtilities {
   late String iban;
   IbanUtilities(this.iban);
-  IbanUtilities.generateIban(Country country){
+  IbanUtilities.generateIban(Country country) {
     iban = Utils.generateIban(country);
   }
 
@@ -20,6 +18,8 @@ class IbanUtilities {
   String bankCode(Country country) => iban.getBankCode(country);
   String branchCode(Country country) => iban.getBranchCode(country);
   String sortCode(Country country) => iban.getSortCode(country);
-  String nationalCheckDigit(Country country) => iban.getNationalCheckDigit(country);
-  String bankAccountNumber(Country country) => iban.getBankAccountNumber(country);
+  String nationalCheckDigit(Country country) =>
+      iban.getNationalCheckDigit(country);
+  String bankAccountNumber(Country country) =>
+      iban.getBankAccountNumber(country);
 }

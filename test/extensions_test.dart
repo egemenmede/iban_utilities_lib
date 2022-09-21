@@ -59,7 +59,8 @@ void main() {
     group("getNationalCheckDigit Tests", () {
       test('getNationalCheckDigit check - Condition.1', () {
         var sampleTrueIban = "TR33 0006 1005 1978 6457 8413 26";
-        var testArguman = sampleTrueIban.getNationalCheckDigit(Country.testcountry);
+        var testArguman =
+            sampleTrueIban.getNationalCheckDigit(Country.testcountry);
         expect("", testArguman);
       });
 
@@ -73,7 +74,8 @@ void main() {
     group("getBankAccountNumber Tests", () {
       test('getBankAccountNumber check - Condition.1', () {
         var sampleTrueIban = "TR33 0006 1005 1978 6457 8413 26";
-        var testArguman = sampleTrueIban.getBankAccountNumber(Country.testcountry);
+        var testArguman =
+            sampleTrueIban.getBankAccountNumber(Country.testcountry);
         expect("", testArguman);
       });
 

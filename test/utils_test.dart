@@ -17,12 +17,12 @@ void main() {
     });
 
     test('generateCheckDigits function - Length check', () {
-      var digit = Utils.generateCheckDigits(10,99);
+      var digit = Utils.generateCheckDigits(10, 99);
       expect(digit.toString().length, 2);
     });
 
     test('checkIsNumericWithRegEx function - isNumeric check', () {
-      var digit = Utils.generateCheckDigits(10,99);
+      var digit = Utils.generateCheckDigits(10, 99);
       expect(digit.toString().checkIsNumericWithRegEx(), true);
     });
 
