@@ -30,6 +30,7 @@ class Utils {
 
     return randomString;
   }
+  
   /// Private _getIbanChecksum metodu için TestHelper metodu.
   static String getIbanChecksumTestHelper(String str){
     return _getIbanChecksum(str);
