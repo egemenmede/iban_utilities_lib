@@ -30,7 +30,7 @@ class Utils {
 
     return randomString;
   }
-
+  /// Private _getIbanChecksum metodu için TestHelper metodu.
   static String getIbanChecksumTestHelper(String str){
     return _getIbanChecksum(str);
   }
@@ -109,6 +109,7 @@ class Utils {
     return temp;
   }
 
+  /// Ülkeye göre banka listesinden, banka kodu döndürür.
   static String generateBankCode(Country country) {
     switch (country) {
       case Country.turkish:
@@ -128,6 +129,7 @@ class Utils {
     }
   }
 
+  /// Ülkeye ve banka koduna göre bir Bank nesnesi döndürür.
   static Bank getBankObject(Country country, String activeBankCode) {
     List<Bank> bankObjectList = getBankObjectList(country).where((element) => element.bankCode == activeBankCode).toList();
     Bank bankObj;
@@ -140,6 +142,7 @@ class Utils {
     return bankObj;
   }
 
+  /// Ülkeye göre Banka Kodu, Banka İsmi ve Banka Resim ismini List<Bank> döndürür. Yoksa boş Array döndürür.
   static List<Bank> getBankObjectList(Country country) {
     switch (country) {
       case Country.turkish:
