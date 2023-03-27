@@ -33,6 +33,70 @@ void main() {
     });
   });
 
+  group("Turkish IBAN Validate Test", () {
+    test('Turkish True IBAN Validate Check', () {
+      var sampleTrueIban = "TR33 0006 1005 1978 6457 8413 26";
+      final ibanUtilities = IbanUtilities(sampleTrueIban);
+      expect(ibanUtilities.ibanValidate(Country.turkish), true);
+    });
+
+    test('Turkish False IBAN Validate Check - Condition.1', () {
+      // İlk 2 harf olmalı
+      var sampleFalseIban = "4433 0006 1005 1978 6457 8413 26";
+      final ibanUtilities = IbanUtilities(sampleFalseIban);
+      expect(ibanUtilities.ibanValidate(Country.turkish), false);
+    });
+
+    test('Turkish False IBAN Validate Check - Condition.2', () {
+      // İlk 2 harf hatalı
+      var sampleFalseIban = "EM33 0006 1005 1978 6457 8413 26";
+      final ibanUtilities = IbanUtilities(sampleFalseIban);
+      expect(ibanUtilities.ibanValidate(Country.turkish), false);
+    });
+
+    test('Turkish False IBAN Validate Check - Condition.3', () {
+      // Toplam uzunluğu 26 karakter olmalı.
+      var sampleFalseIban = "TR33 0006 1005 1978 6457 8413 2";
+      final ibanUtilities = IbanUtilities(sampleFalseIban);
+      expect(ibanUtilities.ibanValidate(Country.turkish), false);
+    });
+
+    test('Turkish False IBAN Validate Check - Condition.4', () {
+      // Boş olmamalı olmalı.
+      var sampleFalseIban = "";
+      final ibanUtilities = IbanUtilities(sampleFalseIban);
+      expect(ibanUtilities.ibanValidate(Country.turkish), false);
+    });
+
+    test('Turkish True IBAN Validate Check - Condition.5', () {
+      // Iban numarası Alfanümerik olmalı.
+      var sampleFalseIban = "TR33 0006 1005 1978 6457 8413_26";
+      final ibanUtilities = IbanUtilities(sampleFalseIban);
+      expect(ibanUtilities.ibanValidate(Country.turkish), true);
+    });
+
+    test('Turkish False IBAN Validate Check - Condition.6', () {
+      // Iban numarası 10. karakteri sayı olmalı.
+      var sampleFalseIban = "TR33 0006 1X05 1978 6457 8413 26";
+      final ibanUtilities = IbanUtilities(sampleFalseIban);
+      expect(ibanUtilities.ibanValidate(Country.turkish), false);
+    });
+
+    test('Turkish False IBAN Validate Check - Condition.7', () {
+      // Iban numarası 10. karakteri sayı fakat sadece sıfır olmalı.
+      var sampleFalseIban = "TR33 0006 1205 1978 6457 8413 26";
+      final ibanUtilities = IbanUtilities(sampleFalseIban);
+      expect(ibanUtilities.ibanValidate(Country.turkish), false);
+    });
+  });
+
+  group("Verification of the generated Turkish IBAN Test", () {
+    test('Verification of the generated Turkish IBAN Check', () {
+      final ibanUtilities = IbanUtilities.generateIban(Country.turkish);
+      expect(ibanUtilities.ibanValidate(Country.turkish), true);
+    });
+  });
+
   group("Sections of United Kingdom IBAN Test", () {
     var sampleTrueIban = "GB29 NWBK 6016 1331 9268 19";
     final ibanUtilities = IbanUtilities(sampleTrueIban);
@@ -146,70 +210,6 @@ void main() {
 
     test('Italy bankAccountNumber check', () {
       expect(ibanUtilities.bankAccountNumber(Country.italy), "000000123456");
-    });
-  });
-
-  group("Turkish IBAN Validate Test", () {
-    test('Turkish True IBAN Validate Check', () {
-      var sampleTrueIban = "TR33 0006 1005 1978 6457 8413 26";
-      final ibanUtilities = IbanUtilities(sampleTrueIban);
-      expect(ibanUtilities.ibanValidate(Country.turkish), true);
-    });
-
-    test('Turkish False IBAN Validate Check - Condition.1', () {
-      // İlk 2 harf olmalı
-      var sampleFalseIban = "4433 0006 1005 1978 6457 8413 26";
-      final ibanUtilities = IbanUtilities(sampleFalseIban);
-      expect(ibanUtilities.ibanValidate(Country.turkish), false);
-    });
-
-    test('Turkish False IBAN Validate Check - Condition.2', () {
-      // İlk 2 harf hatalı
-      var sampleFalseIban = "EM33 0006 1005 1978 6457 8413 26";
-      final ibanUtilities = IbanUtilities(sampleFalseIban);
-      expect(ibanUtilities.ibanValidate(Country.turkish), false);
-    });
-
-    test('Turkish False IBAN Validate Check - Condition.3', () {
-      // Toplam uzunluğu 26 karakter olmalı.
-      var sampleFalseIban = "TR33 0006 1005 1978 6457 8413 2";
-      final ibanUtilities = IbanUtilities(sampleFalseIban);
-      expect(ibanUtilities.ibanValidate(Country.turkish), false);
-    });
-
-    test('Turkish False IBAN Validate Check - Condition.4', () {
-      // Boş olmamalı olmalı.
-      var sampleFalseIban = "";
-      final ibanUtilities = IbanUtilities(sampleFalseIban);
-      expect(ibanUtilities.ibanValidate(Country.turkish), false);
-    });
-
-    test('Turkish True IBAN Validate Check - Condition.5', () {
-      // Iban numarası Alfanümerik olmalı.
-      var sampleFalseIban = "TR33 0006 1005 1978 6457 8413_26";
-      final ibanUtilities = IbanUtilities(sampleFalseIban);
-      expect(ibanUtilities.ibanValidate(Country.turkish), true);
-    });
-
-    test('Turkish False IBAN Validate Check - Condition.6', () {
-      // Iban numarası 10. karakteri sayı olmalı.
-      var sampleFalseIban = "TR33 0006 1X05 1978 6457 8413 26";
-      final ibanUtilities = IbanUtilities(sampleFalseIban);
-      expect(ibanUtilities.ibanValidate(Country.turkish), false);
-    });
-
-    test('Turkish False IBAN Validate Check - Condition.7', () {
-      // Iban numarası 10. karakteri sayı fakat sadece sıfır olmalı.
-      var sampleFalseIban = "TR33 0006 1205 1978 6457 8413 26";
-      final ibanUtilities = IbanUtilities(sampleFalseIban);
-      expect(ibanUtilities.ibanValidate(Country.turkish), false);
-    });
-  });
-
-  group("Verification of the generated Turkish IBAN Test", () {
-    test('Verification of the generated Turkish IBAN Check', () {
-      final ibanUtilities = IbanUtilities.generateIban(Country.turkish);
-      expect(ibanUtilities.ibanValidate(Country.turkish), true);
     });
   });
 
