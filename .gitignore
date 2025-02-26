@@ -13,6 +13,8 @@ doc/api/
 
 #coverage/html/
 
+coverage/lcov.info
+
 # Avoid committing generated Javascript files:
 *.dart.js
 *.info.json      # Produced by the --dump-info flag.
