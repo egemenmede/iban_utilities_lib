@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iban_utilities/applogger.dart';
 import 'package:iban_utilities_lib/bank.dart';
 import 'package:iban_utilities_lib/enums_countries.dart';
 import 'package:iban_utilities_lib/extensions.dart';
@@ -55,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _printLatestValue() {
-    print('Text field value: ${myController.text}');
+    AppLogger.log('Text field value: ${myController.text}');
   }
 
   @override
@@ -94,13 +95,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   children: [
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.blue, // background
-                        onPrimary: Colors.white, // foreground
+                        foregroundColor: Colors.white,
+                        backgroundColor: Colors.blue, // foreground
                       ),
                       onPressed: () {
                         setState(() {
-                          print(
-                              myController.text.ibanValidate(Country.turkish));
+                          AppLogger.log(myController.text
+                              .ibanValidate(Country.turkish)
+                              .toString());
                           ibanStatus =
                               (myController.text.ibanValidate(Country.turkish))
                                   ? true
@@ -145,13 +147,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     const SizedBox(width: 20),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.blue, // background
-                        onPrimary: Colors.white, // foreground
+                        foregroundColor: Colors.white,
+                        backgroundColor: Colors.blue, // foreground
                       ),
                       onPressed: () {
                         setState(() {
                           var newIban = Utils.generateIban(Country.turkish);
-                          print("Generate IBAN: $newIban");
+                          AppLogger.log("Generate IBAN: $newIban");
                           myController.text = newIban;
                           ibanStatus =
                               (myController.text.ibanValidate(Country.turkish))
@@ -199,8 +201,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   children: [
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.blue, // background
-                        onPrimary: Colors.white, // foreground
+                        foregroundColor: Colors.white,
+                        backgroundColor: Colors.blue, // foreground
                       ),
                       onPressed: () {
                         setState(() {
@@ -250,8 +252,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.blue, // background
-                        onPrimary: Colors.white, // foreground
+                        foregroundColor: Colors.white,
+                        backgroundColor: Colors.blue, // foreground
                       ),
                       onPressed: () {
                         setState(() {
@@ -310,8 +312,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   children: [
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.blue, // background
-                        onPrimary: Colors.white, // foreground
+                        foregroundColor: Colors.white,
+                        backgroundColor: Colors.blue, // foreground
                       ),
                       onPressed: () {
                         setState(() {
@@ -335,8 +337,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.blue, // background
-                        onPrimary: Colors.white, // foreground
+                        foregroundColor: Colors.white,
+                        backgroundColor: Colors.blue, // foreground
                       ),
                       onPressed: () {
                         setState(() {
@@ -375,7 +377,6 @@ class _MyHomePageState extends State<MyHomePage> {
                             padding: EdgeInsets.all(8.0),
                             child: Text(
                               "IBAN DURUMU:",
-                              textScaleFactor: 1.5,
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
                           ),
@@ -383,7 +384,6 @@ class _MyHomePageState extends State<MyHomePage> {
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
                               ibanStatusText,
-                              textScaleFactor: 1.5,
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: textColor),
@@ -395,7 +395,6 @@ class _MyHomePageState extends State<MyHomePage> {
                             padding: EdgeInsets.all(8.0),
                             child: Text(
                               "BANKA:",
-                              textScaleFactor: 1.5,
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
                           ),
@@ -403,7 +402,6 @@ class _MyHomePageState extends State<MyHomePage> {
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
                               (bankName != "") ? bankName : "",
-                              textScaleFactor: 1.5,
                               style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                               ),
@@ -415,7 +413,6 @@ class _MyHomePageState extends State<MyHomePage> {
                             padding: EdgeInsets.all(8.0),
                             child: Text(
                               "BANKA:",
-                              textScaleFactor: 1.5,
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
                           ),
@@ -447,27 +444,23 @@ class _MyHomePageState extends State<MyHomePage> {
                         Padding(
                           padding: EdgeInsets.all(8.0),
                           child: Text("Bilgi",
-                              textScaleFactor: 1.5,
                               style: TextStyle(fontWeight: FontWeight.bold)),
                         ),
                         Padding(
                           padding: EdgeInsets.all(8.0),
                           child: Text("Karakter Grubu",
-                              textScaleFactor: 1.5,
                               style: TextStyle(fontWeight: FontWeight.bold)),
                         ),
                       ]),
                       TableRow(children: [
                         const Padding(
                           padding: EdgeInsets.all(8.0),
-                          child: Text("Ülke Kodu",
-                              textScaleFactor: 1.5,
-                              style: TextStyle(fontSize: 10)),
+                          child:
+                              Text("Ülke Kodu", style: TextStyle(fontSize: 10)),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(countryCode,
-                              textScaleFactor: 1.5,
                               style: const TextStyle(fontSize: 10)),
                         ),
                       ]),
@@ -475,13 +468,11 @@ class _MyHomePageState extends State<MyHomePage> {
                         const Padding(
                           padding: EdgeInsets.all(8.0),
                           child: Text("Kontrol Numarası",
-                              textScaleFactor: 1.5,
                               style: TextStyle(fontSize: 10)),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(checkDigits,
-                              textScaleFactor: 1.5,
                               style: const TextStyle(fontSize: 10)),
                         ),
                       ]),
@@ -489,13 +480,11 @@ class _MyHomePageState extends State<MyHomePage> {
                         const Padding(
                           padding: EdgeInsets.all(8.0),
                           child: Text("Banka Kodu",
-                              textScaleFactor: 1.5,
                               style: TextStyle(fontSize: 10)),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(bankCode,
-                              textScaleFactor: 1.5,
                               style: const TextStyle(fontSize: 10)),
                         ),
                       ]),
@@ -503,13 +492,11 @@ class _MyHomePageState extends State<MyHomePage> {
                         const Padding(
                           padding: EdgeInsets.all(8.0),
                           child: Text("Ulusal Kontrol Sayısı",
-                              textScaleFactor: 1.5,
                               style: TextStyle(fontSize: 10)),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(nationalCheckDigit,
-                              textScaleFactor: 1.5,
                               style: const TextStyle(fontSize: 10)),
                         ),
                       ]),
@@ -517,13 +504,11 @@ class _MyHomePageState extends State<MyHomePage> {
                         const Padding(
                           padding: EdgeInsets.all(8.0),
                           child: Text("Banka Hesap Numarası",
-                              textScaleFactor: 1.5,
                               style: TextStyle(fontSize: 10)),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(bankAccountNumber,
-                              textScaleFactor: 1.5,
                               style: const TextStyle(fontSize: 10)),
                         ),
                       ]),
