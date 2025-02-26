@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.0.3
+
+* Deprecated paketlerin düzenlenmesi.
+
 ## 1.0.2
 
 * Deprecated paketlerin düzenlenmesi.

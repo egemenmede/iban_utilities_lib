@@ -1,6 +1,6 @@
 name: iban_utilities_lib
 description: With IBAN Utilities, you can create an IBAN, check its validity, and see the details of the IBAN content.
-version: 1.0.2
+version: 1.0.3
 homepage: https://github.com/egemenmede/iban_utilities_lib.git
 
 environment:
