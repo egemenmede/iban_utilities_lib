@@ -13,7 +13,7 @@ doc/api/
 
 #coverage/html/
 
-coverage/lcov.info
+example/coverage/lcov.info
 
 # Avoid committing generated Javascript files:
 *.dart.js
