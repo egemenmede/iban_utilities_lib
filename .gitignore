@@ -12,6 +12,7 @@ pubspec.lock
 doc/api/
 
 coverage/html/
+!example/coverage/lcov.info
 
 # Avoid committing generated Javascript files:
 *.dart.js
